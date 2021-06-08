@@ -1,6 +1,6 @@
 # .NET
 
-This directory contains information about .NET web service.
+This file contains information about .NET web service.
 
 ## Commands
 
