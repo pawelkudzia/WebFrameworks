@@ -9,8 +9,9 @@ namespace WebApi.Profiles
         public MappingProfiles()
         {
             CreateMap<Location, LocationReadDto>();
-            CreateMap<Measurement, MeasurementReadDto>();
             CreateMap<LocationCreateDto, Location>();
+            CreateMap<LocationUpdateDto, Location>();
+            CreateMap<Measurement, MeasurementReadDto>();
         }
     }
 }

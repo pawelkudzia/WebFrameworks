@@ -73,5 +73,40 @@ namespace WebApi.Controllers
                 locationReadDto
             );
         }
+
+        [HttpPut("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<LocationReadDto> UpdateLocation([FromRoute] int id, [FromBody] LocationUpdateDto locationUpdateDto)
+        {
+            var location = _context.Locations.FirstOrDefault(l => l.Id == id);
+
+            if (location == null) return NotFound();
+
+            _mapper.Map(locationUpdateDto, location);
+            _context.SaveChanges();
+
+            var locationReadDto = _mapper.Map<LocationReadDto>(location);
+
+            return Ok(locationReadDto);
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult DeleteLocation([FromRoute] int id)
+        {
+            var location = _context.Locations.FirstOrDefault(l => l.Id == id);
+
+            if (location == null) return NotFound();
+
+            _context.Remove(location);
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
