@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Data;
 using WebApi.Dtos;
+using WebApi.Models;
 
 namespace WebApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace WebApi.Controllers
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<LocationReadDto>> GetAll([FromQuery] QueryStringParameters queryStringParameters)
+        public ActionResult<IEnumerable<LocationReadDto>> GetLocations([FromQuery] QueryStringParameters queryStringParameters)
         {
             int skip = (queryStringParameters.Page - 1) * queryStringParameters.Limit;
 
@@ -38,11 +39,12 @@ namespace WebApi.Controllers
             return Ok(locationReadDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetLocationById")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<LocationReadDto> GetById([FromRoute] int id)
+        public ActionResult<LocationReadDto> GetLocationById([FromRoute] int id)
         {
             var location = _context.Locations.FirstOrDefault(l => l.Id == id);
 
@@ -51,6 +53,25 @@ namespace WebApi.Controllers
             var locationReadDto = _mapper.Map<LocationReadDto>(location);
 
             return Ok(locationReadDto);
+        }
+
+        [HttpPost]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<LocationReadDto> CreateLocation([FromBody] LocationCreateDto locationCreateDto)
+        {
+            var location = _mapper.Map<Location>(locationCreateDto);
+            _context.Locations.Add(location);
+            _context.SaveChanges();
+
+            var locationReadDto = _mapper.Map<LocationReadDto>(location);
+
+            return CreatedAtRoute(
+                nameof(GetLocationById),
+                new { locationReadDto.Id },
+                locationReadDto
+            );
         }
     }
 }
