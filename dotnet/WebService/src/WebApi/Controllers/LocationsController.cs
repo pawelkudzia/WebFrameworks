@@ -24,18 +24,31 @@ namespace WebApi.Controllers
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<LocationReadDto>> GetAll(int page = 1, int limit = 10)
+        public ActionResult<IEnumerable<LocationReadDto>> GetAll([FromQuery] QueryStringParameters queryStringParameters)
         {
-            page = page < 1 ? 1 : page;
-            limit = (limit < 1) || (limit > 1000) ? 10 : limit;
-            int skip = (page - 1) * limit;
+            int skip = (queryStringParameters.Page - 1) * queryStringParameters.Limit;
 
             var locations = _context.Locations
                 .OrderBy(x => x.Id)
                 .Skip(skip)
-                .Take(limit);
+                .Take(queryStringParameters.Limit);
 
             var locationReadDto = _mapper.Map<IEnumerable<LocationReadDto>>(locations);
+
+            return Ok(locationReadDto);
+        }
+
+        [HttpGet("{id}")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<LocationReadDto> GetById([FromRoute] int id)
+        {
+            var location = _context.Locations.FirstOrDefault(l => l.Id == id);
+
+            if (location == null) return NotFound();
+
+            var locationReadDto = _mapper.Map<LocationReadDto>(location);
 
             return Ok(locationReadDto);
         }
