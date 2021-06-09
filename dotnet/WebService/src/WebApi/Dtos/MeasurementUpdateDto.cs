@@ -1,33 +1,23 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Models
 {
-    [Table("measurements")]
-    public class Measurement
+    public class MeasurementUpdateDto
     {
-        [Column("id")]
-        [Key]
-        public int Id { get; set; }
-
-        [Column("parameter")]
         [Required]
         [StringLength(maximumLength: 10, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 1)]
         public string Parameter { get; set; }
 
-        [Column("value")]
         [Required]
         [Range(0.0, 100.0, ErrorMessage = "{0} must be between {1} and {2}.")]
         public double Value { get; set; }
 
-        [Column("date")]
         [Required]
         public DateTime Date { get; set; } = DateTime.Now;
 
-        [Column("locationId")]
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "{0} must be allowed value.")]
         public int LocationId { get; set; }
-
-        public Location Location { get; set; }
     }
 }
