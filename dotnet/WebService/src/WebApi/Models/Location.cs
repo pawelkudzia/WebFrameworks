@@ -13,12 +13,12 @@ namespace WebApi.Models
 
         [Column("city")]
         [Required]
-        [StringLength(maximumLength: 35, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 1)]
+        [StringLength(maximumLength: 100, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 1)]
         public string City { get; set; }
 
         [Column("country")]
         [Required]
-        [StringLength(maximumLength: 70, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 1)]
+        [StringLength(maximumLength: 100, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 1)]
         public string Country { get; set; }
 
         [Column("latitude")]
