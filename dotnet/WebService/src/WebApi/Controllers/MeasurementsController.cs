@@ -124,5 +124,31 @@ namespace WebApi.Controllers
 
             return Ok(measurementReadDto);
         }
+
+        [HttpGet("queries")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<MeasurementReadDto>> GetMeasurementsByMultipleQueries([FromQuery] int count = 1)
+        {
+            count = (count < 1) || (count > 100) ? 1 : count;
+
+            var measurements = new List<Measurement>();
+
+            while (count > 0)
+            {
+                int randomId = Randomizer.GetNumber(1, 10001);
+                var measurement = _context.Measurements.FirstOrDefault(m => m.Id == randomId);
+                measurements.Add(measurement);
+                count--;
+            }
+
+            measurements = measurements.OrderBy(m => m.Id).ToList();
+
+            var measurementsReadDto = _mapper.Map<IEnumerable<MeasurementReadDto>>(measurements);
+
+            return Ok(measurementsReadDto);
+        }
     }
 }
