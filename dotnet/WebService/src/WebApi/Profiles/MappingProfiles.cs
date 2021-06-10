@@ -13,6 +13,7 @@ namespace WebApi.Profiles
             CreateMap<LocationUpdateDto, Location>();
             
             CreateMap<Measurement, MeasurementReadDto>();
+            CreateMap<Measurement, MeasurementWithLocationReadDto>();
             CreateMap<MeasurementCreateDto, Measurement>();
             CreateMap<MeasurementUpdateDto, Measurement>();
         }

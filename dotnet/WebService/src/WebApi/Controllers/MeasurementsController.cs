@@ -4,6 +4,7 @@ using System.Net.Mime;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Data;
 using WebApi.Dtos;
 using WebApi.Models;
@@ -125,12 +126,32 @@ namespace WebApi.Controllers
             return Ok(measurementReadDto);
         }
 
+        [HttpGet("location")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<MeasurementWithLocationReadDto> GetRandomMeasurementWithLocation()
+        {
+            int randomId = Randomizer.GetNumber(1, 10001);
+
+            var measurementWithLocation = _context.Measurements
+                .Include(m => m.Location)
+                .FirstOrDefault(m => m.Id == randomId);
+
+            if (measurementWithLocation == null) return NotFound();
+
+            var measurementWithLocationReadDto = _mapper.Map<MeasurementWithLocationReadDto>(measurementWithLocation);
+
+            return Ok(measurementWithLocationReadDto);
+        }
+
         [HttpGet("queries")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<IEnumerable<MeasurementReadDto>> GetMeasurementsByMultipleQueries([FromQuery] int count = 1)
+        public ActionResult<IEnumerable<MeasurementReadDto>> GetRandomMeasurementsByMultipleQueries([FromQuery] int count = 1)
         {
             count = (count < 1) || (count > 100) ? 1 : count;
 
