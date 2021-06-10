@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<MeasurementReadDto>> GetMeasurements([FromQuery] QueryStringParameters queryStringParameters)
         {
@@ -40,13 +41,13 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}", Name = "GetMeasurementById")]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<MeasurementReadDto> GetMeasurementById([FromRoute] int id)
         {
-            var measurement = _context.Measurements.FirstOrDefault(l => l.Id == id);
+            var measurement = _context.Measurements.FirstOrDefault(m => m.Id == id);
 
             if (measurement == null) return NotFound();
 
@@ -56,7 +57,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<MeasurementReadDto> CreateMeasurement([FromBody] MeasurementCreateDto measurementCreateDto)
@@ -67,21 +68,17 @@ namespace WebApi.Controllers
 
             var measurementReadDto = _mapper.Map<MeasurementReadDto>(measurement);
 
-            return CreatedAtRoute(
-                nameof(GetMeasurementById),
-                new { measurementReadDto.Id },
-                measurementReadDto
-            );
+            return CreatedAtRoute(nameof(GetMeasurementById), new { measurementReadDto.Id }, measurementReadDto);
         }
 
         [HttpPut("{id}")]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<MeasurementReadDto> UpdateMeasurement([FromRoute] int id, [FromBody] MeasurementUpdateDto measurementUpdateDto)
         {
-            var measurement = _context.Measurements.FirstOrDefault(l => l.Id == id);
+            var measurement = _context.Measurements.FirstOrDefault(m => m.Id == id);
 
             if (measurement == null) return NotFound();
 
@@ -99,7 +96,7 @@ namespace WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult DeleteMeasurement([FromRoute] int id)
         {
-            var measurement = _context.Measurements.FirstOrDefault(l => l.Id == id);
+            var measurement = _context.Measurements.FirstOrDefault(m => m.Id == id);
 
             if (measurement == null) return NotFound();
 

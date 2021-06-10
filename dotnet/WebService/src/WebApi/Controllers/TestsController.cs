@@ -1,4 +1,5 @@
 using System;
+using System.Net.Mime;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dtos;
@@ -11,7 +12,7 @@ namespace WebApi.Controllers
     public class TestsController : ControllerBase
     {
         [HttpGet("json")]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<JsonTestDto> GetJson()
         {
@@ -25,7 +26,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("plaintext")]
-        [Produces("text/plain")]
+        [Produces(MediaTypeNames.Text.Plain)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<string> GetPlainText()
         {
@@ -35,10 +36,10 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("base64")]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Base64Dto> GetBase64([FromQuery]string message = "This is default message.")
+        public ActionResult<Base64Dto> GetBase64([FromQuery] string message = "This is default message.")
         {
             int requiredMinLength = 3;
             int requiredMaxLenth = 25;
@@ -47,7 +48,7 @@ namespace WebApi.Controllers
             {
                 var errorMessageDto = new ErrorMessageDto
                 {
-                    Message = $"Query string parameter 'message' should be length of {requiredMinLength}-{requiredMaxLenth} characters."
+                    Message = $"'message' length must be between {requiredMinLength} and {requiredMaxLenth}."
                 };
 
                 return BadRequest(errorMessageDto);

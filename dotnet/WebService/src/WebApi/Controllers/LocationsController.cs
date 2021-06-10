@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<LocationReadDto>> GetLocations([FromQuery] QueryStringParameters queryStringParameters)
         {
@@ -40,7 +41,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}", Name = "GetLocationById")]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -56,7 +57,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<LocationReadDto> CreateLocation([FromBody] LocationCreateDto locationCreateDto)
@@ -67,15 +68,11 @@ namespace WebApi.Controllers
 
             var locationReadDto = _mapper.Map<LocationReadDto>(location);
 
-            return CreatedAtRoute(
-                nameof(GetLocationById),
-                new { locationReadDto.Id },
-                locationReadDto
-            );
+            return CreatedAtRoute(nameof(GetLocationById), new { locationReadDto.Id }, locationReadDto);
         }
 
         [HttpPut("{id}")]
-        [Produces("application/json")]
+        [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
