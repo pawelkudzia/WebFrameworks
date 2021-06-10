@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Data;
 using WebApi.Dtos;
 using WebApi.Models;
+using WebApi.Utils;
 
 namespace WebApi.Controllers
 {
@@ -104,6 +105,24 @@ namespace WebApi.Controllers
             _context.SaveChanges();
 
             return NoContent();
+        }
+
+        [HttpGet("random")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<MeasurementReadDto> GetRandomMeasurement()
+        {
+            int randomId = Randomizer.GetNumber(1, 10001);
+
+            var measurement = _context.Measurements.FirstOrDefault(m => m.Id == randomId);
+
+            if (measurement == null) return NotFound();
+
+            var measurementReadDto = _mapper.Map<MeasurementReadDto>(measurement);
+
+            return Ok(measurementReadDto);
         }
     }
 }
