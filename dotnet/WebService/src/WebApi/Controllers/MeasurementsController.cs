@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Mime;
 using AutoMapper;
@@ -31,7 +33,6 @@ namespace WebApi.Controllers
         public ActionResult<IEnumerable<MeasurementReadDto>> GetMeasurements([FromQuery] QueryStringParameters queryStringParameters)
         {
             int skip = (queryStringParameters.Page - 1) * queryStringParameters.Limit;
-
             var measurements = _context.Measurements
                 .OrderBy(x => x.Id)
                 .Skip(skip)
@@ -65,6 +66,7 @@ namespace WebApi.Controllers
         public ActionResult<MeasurementReadDto> CreateMeasurement([FromBody] MeasurementCreateDto measurementCreateDto)
         {
             var measurement = _mapper.Map<Measurement>(measurementCreateDto);
+
             _context.Measurements.Add(measurement);
             _context.SaveChanges();
 
@@ -116,7 +118,6 @@ namespace WebApi.Controllers
         public ActionResult<MeasurementReadDto> GetRandomMeasurement()
         {
             int randomId = Randomizer.GetNumber(1, 10001);
-
             var measurement = _context.Measurements.FirstOrDefault(m => m.Id == randomId);
 
             if (measurement == null) return NotFound();
@@ -134,7 +135,6 @@ namespace WebApi.Controllers
         public ActionResult<MeasurementWithLocationReadDto> GetRandomMeasurementWithLocation()
         {
             int randomId = Randomizer.GetNumber(1, 10001);
-
             var measurementWithLocation = _context.Measurements
                 .Include(m => m.Location)
                 .FirstOrDefault(m => m.Id == randomId);
@@ -154,7 +154,6 @@ namespace WebApi.Controllers
         public ActionResult<IEnumerable<MeasurementReadDto>> GetRandomMeasurementsByMultipleQueries([FromQuery] int count = 1)
         {
             count = (count < 1) || (count > 100) ? 1 : count;
-
             var measurements = new List<Measurement>();
 
             while (count > 0)
@@ -170,6 +169,57 @@ namespace WebApi.Controllers
             var measurementsReadDto = _mapper.Map<IEnumerable<MeasurementReadDto>>(measurements);
 
             return Ok(measurementsReadDto);
+        }
+
+        [HttpPost("random")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<MeasurementReadDto> CreateRandomMeasurement()
+        {
+            var date = DateTime.Now;
+            var updatedDate = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+            var measurement = new Measurement
+            {
+                Parameter = "pm10",
+                Value = Randomizer.GetNumber(0, 101),
+                Date = updatedDate,
+                LocationId = Randomizer.GetNumber(1, 11)
+            };
+
+            _context.Measurements.Add(measurement);
+            _context.SaveChanges();
+
+            var measurementReadDto = _mapper.Map<MeasurementReadDto>(measurement);
+
+            return CreatedAtRoute(nameof(GetMeasurementById), new { measurementReadDto.Id }, measurementReadDto);
+        }
+
+        [HttpPut("random")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<MeasurementReadDto> UpdateRandomMeasurement()
+        {
+            int randomId = Randomizer.GetNumber(1, 10001);
+            var measurement = _context.Measurements.FirstOrDefault(m => m.Id == randomId);
+
+            if (measurement == null) return NotFound();
+
+            var date = DateTime.Now;
+            var updatedDate = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+            measurement.Parameter = "pm10";
+            measurement.Value = Randomizer.GetNumber(0, 101);
+            measurement.Date = updatedDate;
+            measurement.LocationId = Randomizer.GetNumber(1, 11);
+
+            _context.SaveChanges();
+
+            var measurementReadDto = _mapper.Map<MeasurementReadDto>(measurement);
+
+            return Ok(measurementReadDto);
         }
     }
 }
