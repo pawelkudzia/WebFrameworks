@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateLocationRequest;
+use App\Http\Requests\StoreLocationRequest;
+use App\Http\Resources\LocationResource;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
@@ -13,28 +16,58 @@ class LocationsController extends Controller
         $limit = ($request->query('limit') < 1) || ($request->query('limit') > 1000) ? 10 : $request->query('limit');
         $skip = ($page - 1) * $limit;
 
-        $locations = Location::orderBy('id', 'ASC')->skip($skip)->take($limit)->get();
+        $locations = Location::orderBy('id', 'ASC')
+            ->skip($skip)
+            ->take($limit)
+            ->get();
 
-        return response()->json($locations);
+        $locationsReadDto = LocationResource::collection($locations);
+
+        return response()->json($locationsReadDto);
     }
 
-    public function store(Request $request)
+    public function store(StoreLocationRequest $request)
     {
-        return response()->json(['test' => 'working']);
+        $validated = $request->validated();
+
+        $location = new Location();
+        $location->city = $validated['city'];
+        $location->country = $validated['country'];
+        $location->latitude = $validated['latitude'];
+        $location->longitude = $validated['longitude'];
+        $location->save();
+
+        $locationReadDto = new LocationResource($location);
+
+        return response()->json($locationReadDto);
     }
 
     public function show(Location $location)
     {
-        return response()->json(['test' => 'working']);
+        $locationReadDto = new LocationResource($location);
+
+        return response()->json($locationReadDto);
     }
 
-    public function update(Request $request, Location $location)
+    public function update(UpdateLocationRequest $request, Location $location)
     {
-        return response()->json(['test' => 'working']);
+        $validated = $request->validated();
+
+        $location->city = $validated['city'];
+        $location->country = $validated['country'];
+        $location->latitude = $validated['latitude'];
+        $location->longitude = $validated['longitude'];
+        $location->save();
+
+        $locationReadDto = new LocationResource($location);
+
+        return response()->json($locationReadDto);
     }
 
     public function destroy(Location $location)
     {
-        return response()->json(['test' => 'working']);
+        $location->delete();
+
+        return response('', 204);
     }
 }
