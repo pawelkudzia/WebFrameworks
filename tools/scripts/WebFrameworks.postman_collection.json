@@ -7,9 +7,20 @@
 	"item": [
 		{
 			"name": "json",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/json",
 					"protocol": "http",
@@ -27,9 +38,20 @@
 		},
 		{
 			"name": "plaintext",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/plaintext",
 					"protocol": "http",
@@ -47,11 +69,22 @@
 		},
 		{
 			"name": "base64",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:5000/api/base64?message=Paweł",
+					"raw": "http://localhost:5000/api/base64?message=Pawel",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -64,7 +97,7 @@
 					"query": [
 						{
 							"key": "message",
-							"value": "Paweł"
+							"value": "Pawel"
 						}
 					]
 				}
@@ -73,9 +106,20 @@
 		},
 		{
 			"name": "locations",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/locations",
 					"protocol": "http",
@@ -93,9 +137,20 @@
 		},
 		{
 			"name": "location",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/locations/1",
 					"protocol": "http",
@@ -114,9 +169,20 @@
 		},
 		{
 			"name": "create location",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"city\": \"a\",\r\n    \"country\": \"b\",\r\n    \"latitude\": 90,\r\n    \"longitude\": 180\r\n}",
@@ -143,9 +209,20 @@
 		},
 		{
 			"name": "update location",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"city\": \"updated\",\r\n    \"country\": \"updated\",\r\n    \"latitude\": 90,\r\n    \"longitude\": 180\r\n}",
@@ -156,7 +233,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/locations/20",
+					"raw": "http://localhost:5000/api/locations/12",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -165,7 +242,7 @@
 					"path": [
 						"api",
 						"locations",
-						"20"
+						"12"
 					]
 				}
 			},
@@ -173,11 +250,22 @@
 		},
 		{
 			"name": "delete location",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:5000/api/locations/20",
+					"raw": "http://localhost:5000/api/locations/12",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -186,7 +274,7 @@
 					"path": [
 						"api",
 						"locations",
-						"20"
+						"12"
 					]
 				}
 			},
@@ -194,9 +282,20 @@
 		},
 		{
 			"name": "measurements",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements",
 					"protocol": "http",
@@ -214,9 +313,20 @@
 		},
 		{
 			"name": "measurement",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements/1",
 					"protocol": "http",
@@ -235,12 +345,23 @@
 		},
 		{
 			"name": "create measurement",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"parameter\": \"pm25\",\r\n    \"locationId\": 1,\r\n    \"value\": 25.514\r\n}",
+					"raw": "{\r\n    \"parameter\": \"pm10\",\r\n    \"locationId\": 1,\r\n    \"value\": 12.3456,\r\n    \"date\": \"2021-06-13T11:00:00\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,12 +385,23 @@
 		},
 		{
 			"name": "update measurement",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"parameter\": \"updated\",\r\n    \"locationId\": 4,\r\n    \"value\": 50.145,\r\n    \"date\": \"2021-06-09T13:54:17.55\"\r\n}",
+					"raw": "{\r\n    \"parameter\": \"updated\",\r\n    \"locationId\": 2,\r\n    \"value\": 20,\r\n    \"date\": \"2021-06-09T13:54:17.55\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -277,7 +409,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/10033",
+					"raw": "http://localhost:5000/api/measurements/10121",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -286,7 +418,7 @@
 					"path": [
 						"api",
 						"measurements",
-						"10033"
+						"10121"
 					]
 				}
 			},
@@ -294,11 +426,22 @@
 		},
 		{
 			"name": "delete measurements",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/10037",
+					"raw": "http://localhost:5000/api/measurements/10110",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -307,7 +450,7 @@
 					"path": [
 						"api",
 						"measurements",
-						"10037"
+						"10110"
 					]
 				}
 			},
@@ -315,9 +458,20 @@
 		},
 		{
 			"name": "measurement random",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements/random",
 					"protocol": "http",
@@ -336,9 +490,20 @@
 		},
 		{
 			"name": "measurement location",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements/location",
 					"protocol": "http",
@@ -357,9 +522,20 @@
 		},
 		{
 			"name": "measurement queries",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements/queries?count=100",
 					"protocol": "http",
@@ -384,9 +560,20 @@
 		},
 		{
 			"name": "create measurement random",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements/random",
 					"protocol": "http",
@@ -405,9 +592,20 @@
 		},
 		{
 			"name": "update measurement random",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:5000/api/measurements/random",
 					"protocol": "http",
