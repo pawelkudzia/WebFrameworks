@@ -40,7 +40,7 @@ class MeasurementsController extends Controller
         if (array_key_exists('date', $validated)) {
             $measurement->date = $validated['date'];
         } else {
-            $measurement->date = Carbon::now();
+            $measurement->date = Carbon::now('Europe/Warsaw');
         }
 
         $measurement->locationId = $validated['locationId'];
@@ -68,7 +68,7 @@ class MeasurementsController extends Controller
         if (array_key_exists('date', $validated)) {
             $measurement->date = $validated['date'];
         } else {
-            $measurement->date = Carbon::now();
+            $measurement->date = Carbon::now('Europe/Warsaw');
         }
 
         $measurement->locationId = $validated['locationId'];
@@ -128,9 +128,9 @@ class MeasurementsController extends Controller
 
     public function createRandomMeasurement()
     {
-        $date = Carbon::now()->toDateTimeLocalString();
+        $date = Carbon::now('Europe/Warsaw');
         $measurement = new Measurement();
-        $measurement->parameter = "pm10";
+        $measurement->parameter = 'pm10';
         $measurement->value = Randomizer::getNumber(0, 101);
         $measurement->date = $date;
         $measurement->locationId = Randomizer::getNumber(1, 11);
@@ -139,5 +139,22 @@ class MeasurementsController extends Controller
         $measurementReadDto = new MeasurementResource($measurement);
 
         return response()->json($measurementReadDto, 201);
+    }
+
+    public function updateRandomMeasurement()
+    {
+        $randomId = Randomizer::getNumber(1, 10001);
+        $measurement = Measurement::findOrFail($randomId);
+
+        $date = Carbon::now('Europe/Warsaw');
+        $measurement->parameter = 'pm10';
+        $measurement->value = Randomizer::getNumber(0, 101);
+        $measurement->date = $date;
+        $measurement->locationId = Randomizer::getNumber(1, 11);
+        $measurement->save();
+
+        $measurementReadDto = new MeasurementResource($measurement);
+
+        return response()->json($measurementReadDto);
     }
 }

@@ -13,7 +13,8 @@ class Measurement extends Model
 
     protected $casts = [
         'value' => 'double',
-        'locationId' => 'integer'
+        'locationId' => 'integer',
+        'date' => 'datetime'
     ];
 
     public function location()
