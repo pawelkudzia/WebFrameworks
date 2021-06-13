@@ -25,7 +25,7 @@ class TestsController extends Controller
     {
         $message = 'API is working! Path: /' . $request->path();
 
-        return response($message);
+        return response($message, 200, ['Content-Type' => 'text/plain']);
     }
 
     public function getBase64(Request $request)
