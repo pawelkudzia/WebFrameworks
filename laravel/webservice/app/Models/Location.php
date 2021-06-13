@@ -15,4 +15,9 @@ class Location extends Model
         'latitude' => 'double',
         'longitude' => 'double'
     ];
+
+    public function measurements()
+    {
+        return $this->hasMany(Measurement::class);
+    }
 }

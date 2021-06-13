@@ -10,4 +10,14 @@ class Measurement extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $casts = [
+        'value' => 'double',
+        'locationId' => 'integer'
+    ];
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }
