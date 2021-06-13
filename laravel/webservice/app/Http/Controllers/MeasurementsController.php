@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateMeasurementRequest;
 use App\Http\Requests\StoreMeasurementRequest;
 use App\Http\Resources\MeasurementResource;
 use App\Models\Measurement;
+use App\Utils\Randomizer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -82,5 +83,15 @@ class MeasurementsController extends Controller
         $measurement->delete();
 
         return response('', 204);
+    }
+
+    public function getRandomMeasurement(Request $request)
+    {
+        $randomId = Randomizer::getNumber(1, 10001);
+        $measurement = Measurement::findOrFail($randomId);
+
+        $measurementReadDto = new MeasurementResource($measurement);
+
+        return response()->json($measurementReadDto);
     }
 }

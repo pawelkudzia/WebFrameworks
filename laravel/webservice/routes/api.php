@@ -3,6 +3,7 @@
 use App\Http\Controllers\LocationsController;
 use App\Http\Controllers\MeasurementsController;
 use App\Http\Controllers\TestsController;
+use App\Models\Measurement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,6 @@ Route::get('/plaintext', [TestsController::class, 'getPlainText']);
 Route::get('/base64', [TestsController::class, 'getBase64']);
 
 Route::apiResource('locations', LocationsController::class);
+
+Route::get('/measurements/random', [MeasurementsController::class, 'getRandomMeasurement']);
 Route::apiResource('measurements', MeasurementsController::class);
