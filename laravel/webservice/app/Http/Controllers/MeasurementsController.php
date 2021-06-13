@@ -105,4 +105,24 @@ class MeasurementsController extends Controller
 
         return response()->json($measurementWithLocationReadDto);
     }
+
+    public function getRandomMeasurementsByMultipleQueries(Request $request)
+    {
+        $count = ($request->query('count') < 1) || ($request->query('count') > 100) ? 1 : $request->query('count');
+
+        $measurements = collect([]);
+
+        while ($count > 0) {
+            $randomId = Randomizer::getNumber(1, 10001);
+            $measurement = Measurement::findOrFail($randomId);
+            $measurements[] = $measurement;
+            $count--;
+        }
+
+        $measurements = $measurements->sortBy('id');
+
+        $measurementsReadDto = MeasurementResource::collection($measurements);
+
+        return response()->json($measurementsReadDto);
+    }
 }
