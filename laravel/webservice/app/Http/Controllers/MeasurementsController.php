@@ -48,7 +48,7 @@ class MeasurementsController extends Controller
 
         $measurementReadDto = new MeasurementResource($measurement);
 
-        return response()->json($measurementReadDto);
+        return response()->json($measurementReadDto, 201);
     }
 
     public function show(Measurement $measurement)
