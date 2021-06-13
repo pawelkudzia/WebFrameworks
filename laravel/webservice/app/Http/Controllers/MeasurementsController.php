@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateMeasurementRequest;
 use App\Http\Requests\StoreMeasurementRequest;
+use App\Http\Resources\MeasurementWithLocationResource;
 use App\Http\Resources\MeasurementResource;
 use App\Models\Measurement;
 use App\Utils\Randomizer;
@@ -85,7 +86,7 @@ class MeasurementsController extends Controller
         return response('', 204);
     }
 
-    public function getRandomMeasurement(Request $request)
+    public function getRandomMeasurement()
     {
         $randomId = Randomizer::getNumber(1, 10001);
         $measurement = Measurement::findOrFail($randomId);
@@ -93,5 +94,15 @@ class MeasurementsController extends Controller
         $measurementReadDto = new MeasurementResource($measurement);
 
         return response()->json($measurementReadDto);
+    }
+
+    public function getRandomMeasurementWithLocation()
+    {
+        $randomId = Randomizer::getNumber(1, 10001);
+        $measurementWithLocation = Measurement::with('location')->findOrFail($randomId);
+
+        $measurementWithLocationReadDto = new MeasurementWithLocationResource($measurementWithLocation);
+
+        return response()->json($measurementWithLocationReadDto);
     }
 }

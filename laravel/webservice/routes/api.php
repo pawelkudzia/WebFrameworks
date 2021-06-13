@@ -24,4 +24,5 @@ Route::get('/base64', [TestsController::class, 'getBase64']);
 Route::apiResource('locations', LocationsController::class);
 
 Route::get('/measurements/random', [MeasurementsController::class, 'getRandomMeasurement']);
+Route::get('/measurements/location', [MeasurementsController::class, 'getRandomMeasurementWithLocation']);
 Route::apiResource('measurements', MeasurementsController::class);
