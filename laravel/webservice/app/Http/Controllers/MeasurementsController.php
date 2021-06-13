@@ -125,4 +125,19 @@ class MeasurementsController extends Controller
 
         return response()->json($measurementsReadDto);
     }
+
+    public function createRandomMeasurement()
+    {
+        $date = Carbon::now()->toDateTimeLocalString();
+        $measurement = new Measurement();
+        $measurement->parameter = "pm10";
+        $measurement->value = Randomizer::getNumber(0, 101);
+        $measurement->date = $date;
+        $measurement->locationId = Randomizer::getNumber(1, 11);
+        $measurement->save();
+
+        $measurementReadDto = new MeasurementResource($measurement);
+
+        return response()->json($measurementReadDto, 201);
+    }
 }

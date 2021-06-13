@@ -26,4 +26,5 @@ Route::apiResource('locations', LocationsController::class);
 Route::get('/measurements/random', [MeasurementsController::class, 'getRandomMeasurement']);
 Route::get('/measurements/location', [MeasurementsController::class, 'getRandomMeasurementWithLocation']);
 Route::get('/measurements/queries', [MeasurementsController::class, 'getRandomMeasurementsByMultipleQueries']);
+Route::post('/measurements/random', [MeasurementsController::class, 'createRandomMeasurement']);
 Route::apiResource('measurements', MeasurementsController::class);
