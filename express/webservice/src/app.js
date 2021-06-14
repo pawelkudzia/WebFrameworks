@@ -15,11 +15,7 @@ app.use(express.json());
 // endpoints
 app.get('/api/json', (req, res) => {
     const date = moment().format('YYYY-MM-DDTHH:mm:ss.SSS');
-
-    const jsonTestDto = {
-        message: `API is working! Path: ${req.path}`,
-        date: date
-    };
+    const jsonTestDto = { message: `API is working! Path: ${req.path}`, date: date };
 
     res.status(200).json(jsonTestDto);
 });

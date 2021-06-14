@@ -3,7 +3,6 @@ namespace WebApi.Dtos
     public class QueryStringParameters
     {
         private int _page = 1;
-        
         private int _limit = 10;
 
         public int Page

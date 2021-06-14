@@ -10,7 +10,7 @@ class Base64Dto
     public string $encodedMessage;
     public string $decodedMessage;
 
-    public function __construct($message)
+    public function __construct(string $message)
     {
         $this->message = $message;
         $this->encodedMessage = Base64::encode($this->message);

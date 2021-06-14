@@ -45,10 +45,7 @@ namespace WebApi.Controllers
 
             if (message == null || message.Length < requiredMinLength || message.Length > requiredMaxLenth)
             {
-                var errorMessageDto = new ErrorMessageDto
-                {
-                    Message = $"'message' length must be between {requiredMinLength} and {requiredMaxLenth}."
-                };
+                var errorMessageDto = new ErrorMessageDto($"'message' length must be between {requiredMinLength} and {requiredMaxLenth}.");
 
                 return BadRequest(errorMessageDto);
             }

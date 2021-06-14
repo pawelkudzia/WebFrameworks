@@ -1,5 +1,5 @@
 class ErrorMessageDto {
-    constructor(message) {
+    constructor(message = 'Something went wrong.') {
         this.message = message;
     }
 }

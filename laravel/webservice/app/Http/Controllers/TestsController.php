@@ -35,8 +35,7 @@ class TestsController extends Controller
         $requiredMaxLenth = 25;
 
         if ($message === null || Str::length($message) < $requiredMinLength || Str::length($message) > $requiredMaxLenth) {
-            $errorMessageDto = new ErrorMessageDto();
-            $errorMessageDto->message = "'message' length must be between " . $requiredMinLength . " and " . $requiredMaxLenth . ".";
+            $errorMessageDto = new ErrorMessageDto("'message' length must be between {$requiredMinLength} and {$requiredMaxLenth}.");
 
             return response()->json($errorMessageDto, 400);
         }

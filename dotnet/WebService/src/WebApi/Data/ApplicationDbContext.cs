@@ -9,16 +9,10 @@ namespace WebApi.Data
 
         public DbSet<Measurement> Measurements { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder options) { }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) { }
     }
 }
