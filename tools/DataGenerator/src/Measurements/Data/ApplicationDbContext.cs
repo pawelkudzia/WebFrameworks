@@ -9,7 +9,7 @@ namespace Measurements.Data
 
         public DbSet<Measurement> Measurements { get; set; }
 
-        private readonly string _dataSource = "Data Source=measurements.db";
+        private readonly string _dataSource = "Data Source=measurements.sqlite3";
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite(_dataSource);
 
