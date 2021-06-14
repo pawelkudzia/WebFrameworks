@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Dtos\Base64Dto;
 use App\Dtos\ErrorMessageDto;
 use App\Dtos\JsonTestDto;
-use App\Utils\Base64;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -42,10 +41,7 @@ class TestsController extends Controller
             return response()->json($errorMessageDto, 400);
         }
 
-        $base64Dto = new Base64Dto();
-        $base64Dto->message = $message;
-        $base64Dto->encodedMessage = Base64::encode($message);
-        $base64Dto->decodedMessage = Base64::decode($base64Dto->encodedMessage);
+        $base64Dto = new Base64Dto($message);
 
         return response()->json($base64Dto);
     }

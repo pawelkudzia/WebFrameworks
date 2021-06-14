@@ -3,7 +3,6 @@ using System.Net.Mime;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Dtos;
-using WebApi.Utils;
 
 namespace WebApi.Controllers
 {
@@ -54,12 +53,7 @@ namespace WebApi.Controllers
                 return BadRequest(errorMessageDto);
             }
 
-            var base64Dto = new Base64Dto
-            {
-                Message = message,
-                EncodedMessage = Base64.Encode(message)
-            };
-            base64Dto.DecodedMessage = Base64.Decode(base64Dto.EncodedMessage);
+            var base64Dto = new Base64Dto(message);
 
             return Ok(base64Dto);
         }
