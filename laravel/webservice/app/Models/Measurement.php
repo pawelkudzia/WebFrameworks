@@ -14,7 +14,7 @@ class Measurement extends Model
     protected $casts = [
         'value' => 'double',
         'locationId' => 'integer',
-        'date' => 'datetime'
+        'date' => 'datetime:Y-m-d\TH:i:s.v'
     ];
 
     public function location()

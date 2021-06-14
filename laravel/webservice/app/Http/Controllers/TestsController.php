@@ -16,7 +16,7 @@ class TestsController extends Controller
     {
         $jsonTestDto = new JsonTestDto();
         $jsonTestDto->message = 'API is working! Path: /' . $request->path();
-        $jsonTestDto->date = Carbon::now('Europe/Warsaw')->toISOString();
+        $jsonTestDto->date = Carbon::now('Europe/Warsaw')->isoFormat('YYYY-MM-DDTHH:mm:ss.SSS');
 
         return response()->json($jsonTestDto);
     }

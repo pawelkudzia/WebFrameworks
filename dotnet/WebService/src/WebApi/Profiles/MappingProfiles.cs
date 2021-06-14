@@ -13,7 +13,7 @@ namespace WebApi.Profiles
             CreateMap<LocationUpdateDto, Location>();
 
             CreateMap<Measurement, MeasurementReadDto>()
-                .ForMember(dto => dto.Date, entity => entity.MapFrom(e => e.Date.ToString("yyyy-MM-ddTHH:mm:ss.ffffffZ")));
+                .ForMember(dto => dto.Date, entity => entity.MapFrom(e => e.Date.ToString("yyyy-MM-ddTHH:mm:ss.fff")));
 
             CreateMap<Measurement, MeasurementWithLocationReadDto>();
             CreateMap<MeasurementCreateDto, Measurement>();
