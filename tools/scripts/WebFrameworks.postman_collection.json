@@ -84,7 +84,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/base64?message=Pawel",
+					"raw": "http://localhost:5000/api/base64?message=Paweł",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -97,7 +97,7 @@
 					"query": [
 						{
 							"key": "message",
-							"value": "Pawel"
+							"value": "Paweł"
 						}
 					]
 				}
@@ -409,7 +409,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/10121",
+					"raw": "http://localhost:5000/api/measurements/10001",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -418,7 +418,7 @@
 					"path": [
 						"api",
 						"measurements",
-						"10121"
+						"10001"
 					]
 				}
 			},
