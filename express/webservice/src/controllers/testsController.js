@@ -2,7 +2,6 @@ import moment from 'moment';
 import Base64Dto from '../dtos/base64Dto.js';
 import ErrorMessageDto from '../dtos/errorMessageDto.js';
 
-// endpoint handlers
 const json = (req, res) => {
     const date = moment().format('YYYY-MM-DDTHH:mm:ss.SSS');
     const jsonTestDto = { message: `API is working! Path: ${req.path}`, date: date };

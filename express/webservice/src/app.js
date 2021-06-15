@@ -2,17 +2,18 @@ import express from 'express';
 import dotenv from 'dotenv';
 import AppError from './utils/appError.js'
 import testsRouter from './routes/testsRouter.js';
-
+import database from './data/database.js';
 
 // app init
-dotenv.config({ path: './.env' });
+dotenv.config({ path: '.env' });
 const app = express();
 const port = process.env.PORT || 5000;
 
+// database init
+database.connect();
 
 // middleware
 app.use(express.json());
-
 
 // api
 app.use('/api', testsRouter);
@@ -31,7 +32,6 @@ app.use((err, req, res, next) => {
         message: err.message
     });
 });
-
 
 // server
 app.listen(port, () => console.log(`Server is running on port: ${port}.`));
