@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import AppError from './utils/appError.js'
-import testsRouter from './routes/testsRouter.js';
+import AppError from './utils/appError.js';
 import database from './data/database.js';
+import testsRouter from './routes/testsRouter.js';
+import locationsRouter from './routes/locationsRouter.js';
 
 // app init
 dotenv.config({ path: '.env' });
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // api
 app.use('/api', testsRouter);
+app.use('/api/locations', locationsRouter);
 
 app.all('*', (req, res, next) => {
     next(new AppError(`Can not find ${req.originalUrl} on this server!`, 404));

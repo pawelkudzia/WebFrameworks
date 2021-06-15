@@ -3,8 +3,10 @@ import Base64Dto from '../dtos/base64Dto.js';
 import ErrorMessageDto from '../dtos/errorMessageDto.js';
 
 const json = (req, res) => {
-    const date = moment().format('YYYY-MM-DDTHH:mm:ss.SSS');
-    const jsonTestDto = { message: `API is working! Path: ${req.path}`, date: date };
+    const jsonTestDto = {
+        message: `API is working! Path: ${req.path}`,
+        date: moment().format('YYYY-MM-DDTHH:mm:ss.SSS')
+    };
 
     res.status(200).json(jsonTestDto);
 };
@@ -16,7 +18,7 @@ const plaintext = (req, res) => {
 };
 
 const base64 = (req, res) => {
-    const message = req.query.message ? req.query.message : 'This is default message.';
+    const message = req.query.message || 'This is default message.';
 
     const requiredMinLength = 3;
     const requiredMaxLenth = 25;
