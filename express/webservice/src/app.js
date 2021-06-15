@@ -36,4 +36,9 @@ app.use((err, req, res, next) => {
 });
 
 // server
-app.listen(port, () => console.log(`Server is running on port: ${port}.`));
+const server = app.listen(port, () => console.log(`Server is running on port: ${port}.`));
+
+process.on('SIGINT', () => {
+    database.sequelize.close().then(() => console.log('Database connection was closed.'));
+    server.close(() => console.log(`Server on port: ${port} was closed.`));
+});

@@ -1,5 +1,6 @@
 import catchAsync from '../utils/catchAsync.js';
 import Location from '../models/locationModel.js';
+import AppError from '../utils/appError.js';
 
 const getLocations = catchAsync(async (req, res, next) => {
     // cast to numeric value
@@ -19,8 +20,25 @@ const getLocations = catchAsync(async (req, res, next) => {
     res.status(200).json(locations);
 });
 
+const getLocationById = catchAsync(async (req, res, next) => {
+    const id = req.params.id * 1;
+
+    if (!Number.isInteger(id)) {
+        return next(new AppError(`'id' parameter must be valid number.`, 400));
+    }
+
+    const location = await Location.findByPk(id);
+
+    if (location === null) {
+        return next(new AppError(`Location with id: ${id} was not found.`, 404));
+    }
+
+    res.status(200).json(location);
+});
+
 const locationsController = {
-    getLocations
+    getLocations,
+    getLocationById
 };
 
 export default locationsController;
