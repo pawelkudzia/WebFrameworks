@@ -14,8 +14,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // database init
-const initDatabase = async () => await database.connect();
-await initDatabase();
+await database.connect();
 
 // middleware
 app.use(express.json());
@@ -45,4 +44,4 @@ app.use((error, req, res, next) => {
 });
 
 // server
-const server = app.listen(port, () => console.log(`Server is running on port: ${port}.`));
+app.listen(port, () => console.log(`Server is running on port: ${port}.`));
