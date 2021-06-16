@@ -36,9 +36,21 @@ const getLocationById = catchAsync(async (req, res, next) => {
     res.status(200).json(location);
 });
 
+const createLocation = catchAsync(async (req, res, next) => {
+    const location = await Location.create({
+        city: req.body.city,
+        country: req.body.country,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude
+    });
+
+    res.status(201).json(location);
+});
+
 const locationsController = {
     getLocations,
-    getLocationById
+    getLocationById,
+    createLocation
 };
 
 export default locationsController;

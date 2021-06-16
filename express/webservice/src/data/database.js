@@ -12,6 +12,7 @@ const sequelize = new Sequelize({
 const connect = async () => {
     try {
         await sequelize.authenticate();
+        await sequelize.query('PRAGMA journal_mode=WAL;');
         console.log(`Connected to database: ${databaseName}.`);
     } catch (error) {
         console.error(`Unable to connect to database: ${databaseName}.`);

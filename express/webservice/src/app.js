@@ -1,9 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import { Sequelize } from 'sequelize';
 import AppError from './utils/appError.js';
 import database from './data/database.js';
 import testsRouter from './routes/testsRouter.js';
 import locationsRouter from './routes/locationsRouter.js';
+
+const { ValidationError } = Sequelize;
 
 // app init
 dotenv.config({ path: '.env' });
@@ -11,7 +14,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // database init
-database.connect();
+const initDatabase = async () => await database.connect();
+await initDatabase();
 
 // middleware
 app.use(express.json());
@@ -25,20 +29,20 @@ app.all('*', (req, res, next) => {
 });
 
 // global error handling middleware
-app.use((err, req, res, next) => {
-    err.statusCode = err.statusCode || 500;
-    err.status = err.status || 'error';
+app.use((error, req, res, next) => {
+    if (error instanceof ValidationError) {
+        error.statusCode = 400;
+        error.status = 'fail';
+    } else {
+        error.statusCode = error.statusCode || 500;
+        error.status = error.status || 'error';
+    }
 
-    res.status(err.statusCode).json({
-        status: err.status,
-        message: err.message
+    res.status(error.statusCode).json({
+        status: error.status,
+        message: error.message
     });
 });
 
 // server
 const server = app.listen(port, () => console.log(`Server is running on port: ${port}.`));
-
-process.on('SIGINT', () => {
-    database.sequelize.close().then(() => console.log('Database connection was closed.'));
-    server.close(() => console.log(`Server on port: ${port} was closed.`));
-});
