@@ -47,10 +47,33 @@ const createLocation = catchAsync(async (req, res, next) => {
     res.status(201).json(location);
 });
 
+const updateLocation = catchAsync(async (req, res, next) => {
+    const id = req.params.id * 1;
+
+    if (!Number.isInteger(id)) {
+        return next(new AppError(`'id' parameter must be valid number.`, 400));
+    }
+
+    let location = await Location.findByPk(id);
+
+    if (location === null) {
+        return next(new AppError(`Location with id: ${id} was not found.`, 404));
+    }
+
+    location.city = req.body.city;
+    location.country = req.body.country;
+    location.latitude = req.body.latitude;
+    location.longitude = req.body.longitude;
+    await location.save();
+
+    res.status(200).json(location);
+});
+
 const locationsController = {
     getLocations,
     getLocationById,
-    createLocation
+    createLocation,
+    updateLocation
 };
 
 export default locationsController;

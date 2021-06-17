@@ -8,6 +8,7 @@ router.route('/')
     .post(locationsController.createLocation);
 
 router.route('/:id')
-    .get(locationsController.getLocationById);
+    .get(locationsController.getLocationById)
+    .put(locationsController.updateLocation);
 
 export default router;
