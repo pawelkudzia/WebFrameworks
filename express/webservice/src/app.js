@@ -5,6 +5,7 @@ import AppError from './utils/appError.js';
 import database from './data/database.js';
 import testsRouter from './routes/testsRouter.js';
 import locationsRouter from './routes/locationsRouter.js';
+import measurementsRouter from './routes/measurementsRouter.js';
 
 const { ValidationError } = Sequelize;
 
@@ -22,6 +23,7 @@ app.use(express.json());
 // api
 app.use('/api', testsRouter);
 app.use('/api/locations', locationsRouter);
+app.use('/api/measurements', measurementsRouter);
 
 app.all('*', (req, res, next) => {
     next(new AppError(`Can not find ${req.originalUrl} on this server!`, 404));
