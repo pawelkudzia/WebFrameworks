@@ -69,11 +69,30 @@ const updateLocation = catchAsync(async (req, res, next) => {
     res.status(200).json(location);
 });
 
+const deleteLocation = catchAsync(async (req, res, next) => {
+    const id = req.params.id * 1;
+
+    if (!Number.isInteger(id)) {
+        return next(new AppError(`'id' parameter must be valid number.`, 400));
+    }
+
+    let location = await Location.findByPk(id);
+
+    if (location === null) {
+        return next(new AppError(`Location with id: ${id} was not found.`, 404));
+    }
+
+    await location.destroy();
+
+    res.status(204).send();
+});
+
 const locationsController = {
     getLocations,
     getLocationById,
     createLocation,
-    updateLocation
+    updateLocation,
+    deleteLocation
 };
 
 export default locationsController;
