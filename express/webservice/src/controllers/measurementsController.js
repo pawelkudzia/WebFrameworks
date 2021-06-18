@@ -50,7 +50,7 @@ const getMeasurementById = catchAsync(async (req, res, next) => {
 });
 
 const createMeasurement = catchAsync(async (req, res, next) => {
-    const timestamp = req.body.timestamp || moment().unix();
+    let timestamp = req.body.timestamp || moment().unix();
 
     const measurement = await Measurement.create({
         parameter: req.body.parameter,
@@ -58,6 +58,10 @@ const createMeasurement = catchAsync(async (req, res, next) => {
         timestamp: timestamp,
         locationId: req.body.locationId
     });
+
+    timestamp = measurement.dataValues.timestamp;
+    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
+    delete measurement.dataValues.timestamp;
 
     res.status(201).json(measurement);
 });
@@ -178,6 +182,47 @@ const getRandomMeasurementsByMultipleQueries = catchAsync(async (req, res, next)
     res.status(200).json(measurements);
 });
 
+const createRandomMeasurement = catchAsync(async (req, res, next) => {
+    const measurement = await Measurement.create({
+        parameter: 'pm10',
+        value: Randomizer.getNumber(0, 101),
+        timestamp: moment().unix(),
+        locationId: Randomizer.getNumber(1, 11)
+    });
+
+    const timestamp = measurement.dataValues.timestamp;
+    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
+    delete measurement.dataValues.timestamp;
+
+    res.status(201).json(measurement);
+});
+
+const updateRandomMeasurement = catchAsync(async (req, res, next) => {
+    const id = Randomizer.getNumber(1, 10001);
+
+    if (!Number.isInteger(id)) {
+        return next(new AppError(`'id' parameter must be valid number.`, 400));
+    }
+
+    const measurement = await Measurement.findByPk(id);
+
+    if (measurement === null) {
+        return next(new AppError(`Measurement with id: ${id} was not found.`, 404));
+    }
+    
+    measurement.parameter = 'pm10';
+    measurement.value = Randomizer.getNumber(0, 101);
+    measurement.timestamp = moment().unix();
+    measurement.locationId = Randomizer.getNumber(1, 11);
+    await measurement.save();
+    
+    const timestamp = measurement.dataValues.timestamp;
+    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
+    delete measurement.dataValues.timestamp;
+    
+    res.status(200).json(measurement);
+});
+
 const measurementsController = {
     getMeasurements,
     getMeasurementById,
@@ -186,7 +231,9 @@ const measurementsController = {
     deleteMeasurement,
     getRandomMeasurement,
     getRandomMeasurementWithLocation,
-    getRandomMeasurementsByMultipleQueries
+    getRandomMeasurementsByMultipleQueries,
+    createRandomMeasurement,
+    updateRandomMeasurement
 };
 
 export default measurementsController;

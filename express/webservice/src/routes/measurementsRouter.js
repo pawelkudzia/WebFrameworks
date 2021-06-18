@@ -4,7 +4,9 @@ import measurementsController from '../controllers/measurementsController.js';
 const router = express.Router();
 
 router.route('/random')
-    .get(measurementsController.getRandomMeasurement);
+    .get(measurementsController.getRandomMeasurement)
+    .post(measurementsController.createRandomMeasurement)
+    .put(measurementsController.updateRandomMeasurement);
 
 router.route('/location')
     .get(measurementsController.getRandomMeasurementWithLocation);
