@@ -37,4 +37,7 @@ const Measurement = database.sequelize.define('Measurement', {
     }
 }, options);
 
+Location.hasMany(Measurement);
+Measurement.belongsTo(Location, { as: 'location' });
+
 export default Measurement;
