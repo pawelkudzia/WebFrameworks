@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class MeasurementResource extends JsonResource
@@ -14,6 +15,12 @@ class MeasurementResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'parameter' => $this->parameter,
+            'value' => $this->value,
+            'date' => Carbon::createFromTimestampUTC($this->timestamp)->format('Y-m-d\TH:i:s\Z'),
+            'locationId' => $this->locationId
+        ];
     }
 }

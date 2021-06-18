@@ -12,6 +12,8 @@ class Location extends Model
     public $timestamps = false;
 
     protected $casts = [
+        'city' => 'string',
+        'country' => 'string',
         'latitude' => 'double',
         'longitude' => 'double'
     ];

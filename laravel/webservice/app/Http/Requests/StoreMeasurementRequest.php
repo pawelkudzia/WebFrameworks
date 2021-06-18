@@ -26,7 +26,7 @@ class StoreMeasurementRequest extends FormRequest
         return [
             'parameter' => 'required|string|min:1|max:10',
             'value' => 'required|numeric|min:0.0|max:100.0',
-            'date' => 'date',
+            'timestamp' => 'numeric',
             'locationId' => 'required|exists:locations,id',
         ];
     }

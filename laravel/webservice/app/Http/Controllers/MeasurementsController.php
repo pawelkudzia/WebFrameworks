@@ -37,10 +37,10 @@ class MeasurementsController extends Controller
         $measurement->parameter = $validated['parameter'];
         $measurement->value = $validated['value'];
 
-        if (array_key_exists('date', $validated)) {
-            $measurement->date = $validated['date'];
+        if (array_key_exists('timestamp', $validated)) {
+            $measurement->timestamp = $validated['timestamp'];
         } else {
-            $measurement->date = Carbon::now('Europe/Warsaw');
+            $measurement->timestamp = Carbon::now('UTC')->timestamp;
         }
 
         $measurement->locationId = $validated['locationId'];
@@ -65,10 +65,10 @@ class MeasurementsController extends Controller
         $measurement->parameter = $validated['parameter'];
         $measurement->value = $validated['value'];
 
-        if (array_key_exists('date', $validated)) {
-            $measurement->date = $validated['date'];
+        if (array_key_exists('timestamp', $validated)) {
+            $measurement->timestamp = $validated['timestamp'];
         } else {
-            $measurement->date = Carbon::now('Europe/Warsaw');
+            $measurement->timestamp = Carbon::now('UTC')->timestamp;
         }
 
         $measurement->locationId = $validated['locationId'];
@@ -128,11 +128,11 @@ class MeasurementsController extends Controller
 
     public function createRandomMeasurement()
     {
-        $date = Carbon::now('Europe/Warsaw');
+        $timestamp = Carbon::now('UTC')->timestamp;
         $measurement = new Measurement();
         $measurement->parameter = 'pm10';
         $measurement->value = Randomizer::getNumber(0, 101);
-        $measurement->date = $date;
+        $measurement->timestamp = $timestamp;
         $measurement->locationId = Randomizer::getNumber(1, 11);
         $measurement->save();
 
@@ -146,10 +146,10 @@ class MeasurementsController extends Controller
         $randomId = Randomizer::getNumber(1, 10001);
         $measurement = Measurement::findOrFail($randomId);
 
-        $date = Carbon::now('Europe/Warsaw');
+        $timestamp = Carbon::now('UTC')->timestamp;
         $measurement->parameter = 'pm10';
         $measurement->value = Randomizer::getNumber(0, 101);
-        $measurement->date = $date;
+        $measurement->timestamp = $timestamp;
         $measurement->locationId = Randomizer::getNumber(1, 11);
         $measurement->save();
 

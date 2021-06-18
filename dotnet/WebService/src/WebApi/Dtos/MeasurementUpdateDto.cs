@@ -14,7 +14,7 @@ namespace WebApi.Models
         public double Value { get; set; }
 
         [Required]
-        public DateTime Date { get; set; } = DateTime.Now;
+        public long Timestamp { get; set; } = (long)DateTime.UtcNow.Subtract(DateTime.UnixEpoch).TotalSeconds;
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "{0} must be allowed value.")]

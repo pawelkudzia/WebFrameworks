@@ -21,9 +21,9 @@ namespace Measurements.Data
 
         public string Parameter { get; set; } = "pm25";
 
-        public DateTime StartDate { get; set; } = new DateTime(2015, 1, 1, 0, 0, 0);
+        public DateTime StartDate { get; set; } = new DateTime(2015, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        public DateTime EndDate { get; set; } = new DateTime(DateTime.Now.Year, 7, 1, 0, 0, 0);
+        public DateTime EndDate { get; set; } = new DateTime(DateTime.Now.Year, 7, 1, 0, 0, 0, DateTimeKind.Utc);
 
         public IEnumerable<Measurement> Measurements { get; set; }
 
@@ -36,14 +36,14 @@ namespace Measurements.Data
                 .RuleFor(m => m.Id, f => measurementId++)
                 .RuleFor(m => m.Parameter, f => Parameter)
                 .RuleFor(m => m.Value, f => Math.Round(f.Random.Double(MinValue, MaxValue), digits))
-                .RuleFor(m => m.Date, f => DateBetween(StartDate, EndDate))
+                .RuleFor(m => m.Timestamp, f => DateBetween(StartDate, EndDate))
                 .RuleFor(m => m.LocationId, f => f.Random.Number(MinLocationId, MaxLocationId))
                 .Generate(Count);
 
             return Measurements;
         }
 
-        private static DateTime DateBetween(DateTime start, DateTime end)
+        private static long DateBetween(DateTime start, DateTime end)
         {
             var minTicks = Math.Min(start.Ticks, end.Ticks);
             var maxTicks = Math.Max(start.Ticks, end.Ticks);
@@ -51,8 +51,9 @@ namespace Measurements.Data
             var totalTimeSpanTicks = maxTicks - minTicks;
             var partTimeSpan = RandomTimeSpanFromTicks(totalTimeSpanTicks);
             var date = new DateTime(minTicks, start.Kind) + partTimeSpan;
+            var timestamp = (long)date.Subtract(DateTime.UnixEpoch).TotalSeconds;
 
-            return new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, date.Kind);
+            return timestamp;
         }
 
         private static TimeSpan RandomTimeSpanFromTicks(long totalTimeSpanTicks)

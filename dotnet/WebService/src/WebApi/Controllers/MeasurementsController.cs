@@ -177,13 +177,12 @@ namespace WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<MeasurementReadDto> CreateRandomMeasurement()
         {
-            var date = DateTime.Now;
-            var updatedDate = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+            var timestamp = (long)DateTime.UtcNow.Subtract(DateTime.UnixEpoch).TotalSeconds;
             var measurement = new Measurement
             {
                 Parameter = "pm10",
                 Value = Randomizer.GetNumber(0, 101),
-                Date = updatedDate,
+                Timestamp = timestamp,
                 LocationId = Randomizer.GetNumber(1, 11)
             };
 
@@ -207,11 +206,10 @@ namespace WebApi.Controllers
 
             if (measurement == null) return NotFound();
 
-            var date = DateTime.Now;
-            var updatedDate = new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
+            var timestamp = (long)DateTime.UtcNow.Subtract(DateTime.UnixEpoch).TotalSeconds;
             measurement.Parameter = "pm10";
             measurement.Value = Randomizer.GetNumber(0, 101);
-            measurement.Date = updatedDate;
+            measurement.Timestamp = timestamp;
             measurement.LocationId = Randomizer.GetNumber(1, 11);
 
             _context.SaveChanges();

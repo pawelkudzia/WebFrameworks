@@ -233,7 +233,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/locations/12",
+					"raw": "http://localhost:5000/api/locations/11",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -242,7 +242,7 @@
 					"path": [
 						"api",
 						"locations",
-						"12"
+						"11"
 					]
 				}
 			},
@@ -265,7 +265,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/locations/12",
+					"raw": "http://localhost:5000/api/locations/11",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -274,7 +274,7 @@
 					"path": [
 						"api",
 						"locations",
-						"12"
+						"11"
 					]
 				}
 			},
@@ -297,7 +297,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/measurements",
+					"raw": "http://localhost:5000/api/measurements?page=11&limit=1000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -306,6 +306,16 @@
 					"path": [
 						"api",
 						"measurements"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "11"
+						},
+						{
+							"key": "limit",
+							"value": "1000"
+						}
 					]
 				}
 			},
@@ -361,7 +371,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"parameter\": \"pm10\",\r\n    \"locationId\": 1,\r\n    \"value\": 12.3456,\r\n    \"date\": \"2021-06-13T11:00:00\"\r\n}",
+					"raw": "{\r\n    \"parameter\": \"pm10\",\r\n    \"value\": 1.23,\r\n    \"timestamp\": 1624006800,\r\n    \"locationId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -401,7 +411,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"parameter\": \"updated\",\r\n    \"locationId\": 2,\r\n    \"value\": 20,\r\n    \"date\": \"2021-06-09T13:54:17.55\"\r\n}",
+					"raw": "{\r\n    \"parameter\": \"updated\",\r\n    \"value\": 1.23,\r\n    \"timestamp\": 1624006800,\r\n    \"locationId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -441,7 +451,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/10110",
+					"raw": "http://localhost:5000/api/measurements/10004",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -450,7 +460,7 @@
 					"path": [
 						"api",
 						"measurements",
-						"10110"
+						"10004"
 					]
 				}
 			},

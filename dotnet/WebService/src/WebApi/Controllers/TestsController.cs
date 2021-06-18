@@ -18,7 +18,7 @@ namespace WebApi.Controllers
             var jsonTestDto = new JsonTestDto
             {
                 Message = $"API is working! Path: {HttpContext.Request.Path}",
-                Date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff")
+                Date = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
             };
 
             return Ok(jsonTestDto);

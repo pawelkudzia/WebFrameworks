@@ -1,3 +1,5 @@
+using System;
+
 namespace WebApi.Dtos
 {
     public class MeasurementReadDto
@@ -8,7 +10,7 @@ namespace WebApi.Dtos
 
         public double Value { get; set; }
 
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         public int LocationId { get; set; }
     }

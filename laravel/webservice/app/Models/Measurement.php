@@ -12,9 +12,10 @@ class Measurement extends Model
     public $timestamps = false;
 
     protected $casts = [
+        'parameter' => 'string',
         'value' => 'double',
+        'timestamp' => 'integer',
         'locationId' => 'integer',
-        'date' => 'datetime:Y-m-d\TH:i:s.v'
     ];
 
     public function location()
