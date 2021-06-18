@@ -25,9 +25,8 @@ const Measurement = database.sequelize.define('Measurement', {
             max: 100.0
         }
     },
-    date: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
+    timestamp: {
+        type: DataTypes.INTEGER
     },
     locationId: {
         type: DataTypes.INTEGER,

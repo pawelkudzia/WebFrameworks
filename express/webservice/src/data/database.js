@@ -12,7 +12,7 @@ const sequelize = new Sequelize({
 const connect = async () => {
     try {
         await sequelize.authenticate();
-        await sequelize.query('PRAGMA journal_mode=DELETE;');
+        // await sequelize.query('PRAGMA journal_mode=DELETE;');
         console.log(`Connected to database: ${databaseName}.`);
     } catch (error) {
         console.error(`Unable to connect to database: ${databaseName}.`);

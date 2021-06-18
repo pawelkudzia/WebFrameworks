@@ -18,6 +18,12 @@ const getMeasurements = catchAsync(async (req, res, next) => {
         limit: limit
     });
 
+    measurements.map(element => {
+        const timestamp = element.dataValues.timestamp;
+        element.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
+        delete element.dataValues.timestamp;
+    });
+
     res.status(200).json(measurements);
 });
 
@@ -34,14 +40,20 @@ const getMeasurementById = catchAsync(async (req, res, next) => {
         return next(new AppError(`Measurement with id: ${id} was not found.`, 404));
     }
 
+    const timestamp = measurement.dataValues.timestamp;
+    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
+    delete measurement.dataValues.timestamp;
+
     res.status(200).json(measurement);
 });
 
 const createMeasurement = catchAsync(async (req, res, next) => {
+    const timestamp = req.body.timestamp || moment().unix();
+
     const measurement = await Measurement.create({
         parameter: req.body.parameter,
         value: req.body.value,
-        date: req.body.date,
+        timestamp: timestamp,
         locationId: req.body.locationId
     });
 
@@ -61,16 +73,15 @@ const updateMeasurement = catchAsync(async (req, res, next) => {
         return next(new AppError(`Measurement with id: ${id} was not found.`, 404));
     }
 
-    const updateDate = req.body.date || moment().local().format('YYYY-MM-DDTHH:mm:ss.SSS');
-    const newDate = moment(updateDate).local().format('YYYY-MM-DDTHH:mm:ss.SSS');
-    console.log('updateDate', updateDate);
-    console.log('newDate', newDate);
-
     measurement.parameter = req.body.parameter;
     measurement.value = req.body.value;
-    measurement.date = newDate;
+    measurement.timestamp = req.body.timestamp || moment().unix();
     measurement.locationId = req.body.locationId;
     await measurement.save();
+
+    const timestamp = measurement.dataValues.timestamp;
+    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
+    delete measurement.dataValues.timestamp;
 
     res.status(200).json(measurement);
 });
