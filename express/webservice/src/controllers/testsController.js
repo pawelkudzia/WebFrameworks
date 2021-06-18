@@ -4,7 +4,7 @@ import ErrorMessageDto from '../dtos/errorMessageDto.js';
 
 const json = (req, res) => {
     const jsonTestDto = {
-        message: `API is working! Path: ${req.path}`,
+        message: `API is working! Path: ${req.originalUrl}`,
         date: moment().utc().format('YYYY-MM-DDTHH:mm:ss') + 'Z'
     };
 
