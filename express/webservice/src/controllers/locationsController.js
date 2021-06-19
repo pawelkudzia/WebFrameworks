@@ -1,9 +1,9 @@
 import catchAsync from '../utils/catchAsync.js';
+import locationsMapper from '../utils/locationsMapper.js';
 import Location from '../models/locationModel.js';
 import AppError from '../utils/appError.js';
 
 const getLocations = catchAsync(async (req, res, next) => {
-    // cast to numeric value
     const queryPage = req.query.page * 1 || 1;
     const queryLimit = req.query.limit * 1 || 10;
 
@@ -17,7 +17,9 @@ const getLocations = catchAsync(async (req, res, next) => {
         limit: limit
     });
 
-    res.status(200).json(locations);
+    const locationsDto = locationsMapper.mapCollection(locations);
+
+    res.status(200).json(locationsDto);
 });
 
 const getLocationById = catchAsync(async (req, res, next) => {
@@ -33,7 +35,9 @@ const getLocationById = catchAsync(async (req, res, next) => {
         return next(new AppError(`Location with id: ${id} was not found.`, 404));
     }
 
-    res.status(200).json(location);
+    const locationDto = locationsMapper.map(location);
+
+    res.status(200).json(locationDto);
 });
 
 const createLocation = catchAsync(async (req, res, next) => {
@@ -44,7 +48,9 @@ const createLocation = catchAsync(async (req, res, next) => {
         longitude: req.body.longitude
     });
 
-    res.status(201).json(location);
+    const locationDto = locationsMapper.map(location);
+
+    res.status(201).json(locationDto);
 });
 
 const updateLocation = catchAsync(async (req, res, next) => {
@@ -66,7 +72,9 @@ const updateLocation = catchAsync(async (req, res, next) => {
     location.longitude = req.body.longitude;
     await location.save();
 
-    res.status(200).json(location);
+    const locationDto = locationsMapper.map(location);
+
+    res.status(200).json(locationDto);
 });
 
 const deleteLocation = catchAsync(async (req, res, next) => {
