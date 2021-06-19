@@ -1,12 +1,11 @@
 import moment from 'moment';
 import catchAsync from '../utils/catchAsync.js';
+import measurementsMapper from '../utils/measurementsMapper.js';
 import Measurement from '../models/measurementModel.js';
 import AppError from '../utils/appError.js';
 import Randomizer from '../utils/randomizer.js';
-import Location from '../models/locationModel.js';
 
 const getMeasurements = catchAsync(async (req, res, next) => {
-    // cast to numeric value
     const queryPage = req.query.page * 1 || 1;
     const queryLimit = req.query.limit * 1 || 10;
 
@@ -20,13 +19,9 @@ const getMeasurements = catchAsync(async (req, res, next) => {
         limit: limit
     });
 
-    measurements.map(element => {
-        const timestamp = element.dataValues.timestamp;
-        element.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-        delete element.dataValues.timestamp;
-    });
+    const measurementsDto = measurementsMapper.mapCollection(measurements);
 
-    res.status(200).json(measurements);
+    res.status(200).json(measurementsDto);
 });
 
 const getMeasurementById = catchAsync(async (req, res, next) => {
@@ -42,11 +37,9 @@ const getMeasurementById = catchAsync(async (req, res, next) => {
         return next(new AppError(`Measurement with id: ${id} was not found.`, 404));
     }
 
-    const timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
+    const measurementDto = measurementsMapper.map(measurement);
 
-    res.status(200).json(measurement);
+    res.status(200).json(measurementDto);
 });
 
 const createMeasurement = catchAsync(async (req, res, next) => {
@@ -59,11 +52,9 @@ const createMeasurement = catchAsync(async (req, res, next) => {
         locationId: req.body.locationId
     });
 
-    timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
+    const measurementDto = measurementsMapper.map(measurement);
 
-    res.status(201).json(measurement);
+    res.status(201).json(measurementDto);
 });
 
 const updateMeasurement = catchAsync(async (req, res, next) => {
@@ -85,11 +76,9 @@ const updateMeasurement = catchAsync(async (req, res, next) => {
     measurement.locationId = req.body.locationId;
     await measurement.save();
 
-    const timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
+    const measurementDto = measurementsMapper.map(measurement);
 
-    res.status(200).json(measurement);
+    res.status(200).json(measurementDto);
 });
 
 const deleteMeasurement = catchAsync(async (req, res, next) => {
@@ -123,11 +112,9 @@ const getRandomMeasurement = catchAsync(async (req, res, next) => {
         return next(new AppError(`Measurement with id: ${id} was not found.`, 404));
     }
 
-    const timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
+    const measurementDto = measurementsMapper.map(measurement);
 
-    res.status(200).json(measurement);
+    res.status(200).json(measurementDto);
 });
 
 const getRandomMeasurementWithLocation = catchAsync(async (req, res, next) => {
@@ -143,12 +130,9 @@ const getRandomMeasurementWithLocation = catchAsync(async (req, res, next) => {
         return next(new AppError(`Measurement with id: ${id} was not found.`, 404));
     }
 
-    const timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
-    delete measurement.dataValues.locationId;
+    const measurementDto = measurementsMapper.mapWithLocation(measurement);
 
-    res.status(200).json(measurement);
+    res.status(200).json(measurementDto);
 });
 
 const getRandomMeasurementsByMultipleQueries = catchAsync(async (req, res, next) => {
@@ -173,13 +157,9 @@ const getRandomMeasurementsByMultipleQueries = catchAsync(async (req, res, next)
         return a.dataValues.id - b.dataValues.id;
     });
 
-    measurements.map(element => {
-        const timestamp = element.dataValues.timestamp;
-        element.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-        delete element.dataValues.timestamp;
-    });
+    const measurementsDto = measurementsMapper.mapCollection(measurements);
 
-    res.status(200).json(measurements);
+    res.status(200).json(measurementsDto);
 });
 
 const createRandomMeasurement = catchAsync(async (req, res, next) => {
@@ -190,11 +170,9 @@ const createRandomMeasurement = catchAsync(async (req, res, next) => {
         locationId: Randomizer.getNumber(1, 11)
     });
 
-    const timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
+    const measurementDto = measurementsMapper.map(measurement);
 
-    res.status(201).json(measurement);
+    res.status(201).json(measurementDto);
 });
 
 const updateRandomMeasurement = catchAsync(async (req, res, next) => {
@@ -216,11 +194,9 @@ const updateRandomMeasurement = catchAsync(async (req, res, next) => {
     measurement.locationId = Randomizer.getNumber(1, 11);
     await measurement.save();
     
-    const timestamp = measurement.dataValues.timestamp;
-    measurement.dataValues.date = moment.unix(timestamp).tz('UTC').format('YYYY-MM-DDTHH:mm:ss') + 'Z';
-    delete measurement.dataValues.timestamp;
-    
-    res.status(200).json(measurement);
+    const measurementDto = measurementsMapper.map(measurement);
+
+    res.status(200).json(measurementDto);
 });
 
 const measurementsController = {
