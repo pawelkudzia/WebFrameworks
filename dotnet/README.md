@@ -6,11 +6,11 @@ This file contains information about .NET web service.
 
 - Add packages to project ([NuGet](https://www.nuget.org)):
 
-`dotnet add package Microsoft.EntityFrameworkCore --version 5.0.6`
+`dotnet add package Microsoft.EntityFrameworkCore --version 5.0.7`
 
-`dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 5.0.6`
+`dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 5.0.7`
 
-`dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.6`
+`dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.7`
 
 `dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 8.1.1`
 
