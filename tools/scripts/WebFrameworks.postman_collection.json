@@ -409,7 +409,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/10039",
+					"raw": "http://localhost:5000/api/measurements/10001",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -418,7 +418,7 @@
 					"path": [
 						"api",
 						"measurements",
-						"10039"
+						"10001"
 					]
 				}
 			},
@@ -441,7 +441,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/10039",
+					"raw": "http://localhost:5000/api/measurements/10001",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -450,7 +450,7 @@
 					"path": [
 						"api",
 						"measurements",
-						"10039"
+						"10001"
 					]
 				}
 			},
@@ -537,7 +537,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/measurements/queries?count=1",
+					"raw": "http://localhost:5000/api/measurements/queries?count=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -551,7 +551,7 @@
 					"query": [
 						{
 							"key": "count",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
