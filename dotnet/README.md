@@ -20,3 +20,8 @@ This file contains information about .NET web service.
 `dotnet publish --configuration Release --self-contained --nologo --runtime linux-x64 --output ./publish_linux`
 
 `dotnet publish --configuration Release --self-contained --nologo --runtime win-x64 --output ./publish_windows`
+
+
+- Run application in development process:
+
+`dotnet run`

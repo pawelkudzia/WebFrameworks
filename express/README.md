@@ -17,3 +17,8 @@ This file contains information about Express web service.
 `npm install sqlite3`
 
 `npm install --save-dev nodemon`
+
+
+- Run application in development process:
+
+`npm run dev`
