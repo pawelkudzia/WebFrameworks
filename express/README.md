@@ -19,6 +19,11 @@ This file contains information about Express web service.
 `npm install --save-dev nodemon`
 
 
-- Run application in development process:
+- Run application (development):
 
 `npm run dev`
+
+
+- Run application (production):
+
+`pm2 start src/app.js`

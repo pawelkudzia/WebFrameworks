@@ -4,6 +4,6 @@ This file contains information about Laravel web service.
 
 ## Commands
 
-- Run application on development server:
+- Run application (development):
 
 `php artisan serve`
