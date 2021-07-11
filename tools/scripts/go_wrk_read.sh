@@ -4,26 +4,14 @@ go_wrk_path="/home/tester/go/bin/go-wrk"
 output_dir="/home/tester/Desktop/results"
 method="GET"
 timeout=30000
-warmup_time=1
-warmup_sleep=1
-test_time=1
-test_sleep=1
-after_warmup_sleep=1
-between_test_sleep=1
+warmup_time=10
+warmup_sleep=5
+test_time=60
+test_sleep=5
+after_warmup_sleep=10
+between_test_sleep=7
 
 # endpoints
-# url_path="http://localhost:8081/api"
-# url_json="${url_path}/json"
-# url_plaintext="${url_path}/plaintext"
-# url_base64="${url_path}/base64"
-# url_measurements_random="${url_path}/measurements/random"
-# url_measurements="${url_path}/measurements"
-# url_measurements100="${url_path}/measurements?page=1&limit=100"
-# url_measurements1000="${url_path}/measurements?page=1&limit=1000"
-# url_measurements_location="${url_path}/measurements/location"
-# url_measurements_queries5="${url_path}/measurements/queries?count=5"
-# url_measurements_queries10="${url_path}/measurements/queries?count=10"
-
 url_path="http://localhost:8081/api"
 
 urls=(
@@ -104,17 +92,6 @@ function main() {
         run_test ${urls[$i]} ${output_files[$i]} $method
         sleep $between_test_sleep
     done
-
-    # run_test $url_json "json" $method
-    # run_test $url_plaintext "plaintext" $method
-    # run_test $url_base64 "base64" $method
-    # run_test $url_measurements_random "measurements_random" $method
-    # run_test $url_measurements "measurements" $method
-    # run_test $url_measurements100 "measurements100" $method
-    # run_test $url_measurements1000 "measurements1000" $method
-    # run_test $url_measurements_location "measurements_location" $method
-    # run_test $url_measurements_queries5 "measurements_queries5" $method
-    # run_test $url_measurements_queries10 "measurements_queries10" $method
 
     echo "Script Finish: $(date --utc "+%Y-%m-%d %H:%M:%S")"
 }
