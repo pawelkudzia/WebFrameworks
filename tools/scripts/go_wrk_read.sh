@@ -18,26 +18,26 @@ timeout=20000
 # Contains concurrent clients.
 concurrent_clients=(1 16 32 64 128 256)
 
-# Time to wait before starting next concurrency test in warmup (seconds).
-warmup_time=1
+# Time to complete single test in warmup (seconds).
+warmup_time=10
 
 # Time to wait before starting next concurrency test in warmup (seconds).
-warmup_sleep=1
+warmup_sleep=5
 
 # Time to wait before starting next URL test in warmup (seconds).
-between_warmup_sleep=1
+between_warmup_sleep=6
 
 # Time to complete single test in real tests (seconds).
-test_time=1
+test_time=60
 
 # Time to wait before starting next concurrency test in real tests (seconds).
-test_sleep=1
+test_sleep=5
 
 # Time to wait before starting next URL test in real tests (seconds).
-between_test_sleep=1
+between_test_sleep=6
 
 # Time to wait before starting real tests after completed warmup (seconds).
-after_warmup_sleep=1
+after_warmup_sleep=10
 
 # Base URL path.
 url_path="http://localhost:8081/api"
@@ -103,7 +103,7 @@ function run_test() {
         file="${output_dir}/${tool}_${test_type}_${concurrency}.txt"
         $go_wrk_path -M "$method" -d $test_time -c "$concurrency" -H "Accept: application/json" -H "Connection: keep-alive" -T $timeout "$url" > "$file"
         echo "Concurrency $concurrency completed"
-        sleep "$test_sleep"
+        sleep $test_sleep
     done
 
     echo -e "Test Finish: $(date --utc "+%Y-%m-%d %H:%M:%S")\n"
