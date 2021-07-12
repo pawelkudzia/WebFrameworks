@@ -9,7 +9,7 @@ warmup_sleep=5
 test_time=60
 test_sleep=5
 after_warmup_sleep=10
-between_test_sleep=7
+between_test_sleep=6
 
 # endpoints
 url_path="http://localhost:8081/api"
