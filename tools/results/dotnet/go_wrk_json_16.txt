@@ -1,0 +1,9 @@
+Running 60s test @ http://localhost:8081/api/json
+  16 goroutine(s) running concurrently
+277120 requests in 59.793593555s, 57.02MB read
+Requests/sec:		4634.61
+Transfer/sec:		976.53KB
+Avg Req Time:		3.452286ms
+Fastest Request:	457.073µs
+Slowest Request:	373.01898ms
+Number of Errors:	0
