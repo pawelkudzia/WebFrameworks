@@ -44,7 +44,7 @@ namespace WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            // Disabled HTTPS redirection
+            // HTTPS redirection is disabled because it is not used.
             // app.UseHttpsRedirection();
 
             app.UseRouting();
