@@ -130,5 +130,5 @@ function main() {
     echo "Script Finish: $(date --utc "+%Y-%m-%d %H:%M:%S")"
 }
 
-# Run script.
+# Runs actions.
 main
