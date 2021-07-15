@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script is used for removing benchmark related files and directories.
-# To run this script use command: ./clean_data.sh
+# To run this script use command: ./clean.sh
 
 var_dir="/var"
 log_dir="$var_dir/log/nginx"
