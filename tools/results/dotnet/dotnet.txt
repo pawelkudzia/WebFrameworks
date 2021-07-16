@@ -1,646 +1,646 @@
-Script Start: 2021-07-14 18:14:00
+Script Start: 2021-07-16 10:39:00
 
-Warmup Start: 2021-07-14 18:14:00
+Warmup Start: 2021-07-16 10:39:00
 URL: http://localhost:8081/api/json
 Running 10s test @ http://localhost:8081/api/json
   1 goroutine(s) running concurrently
-14623 requests in 9.881928021s, 3.01MB read
-Requests/sec:		1479.77
-Transfer/sec:		311.79KB
-Avg Req Time:		675.779µs
-Fastest Request:	422.761µs
-Slowest Request:	33.632639ms
+14396 requests in 9.884995115s, 2.96MB read
+Requests/sec:		1456.35
+Transfer/sec:		306.86KB
+Avg Req Time:		686.648µs
+Fastest Request:	450.318µs
+Slowest Request:	10.640989ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/json
   16 goroutine(s) running concurrently
-41659 requests in 9.971335412s, 8.57MB read
-Requests/sec:		4177.88
-Transfer/sec:		880.31KB
-Avg Req Time:		3.829697ms
-Fastest Request:	451.506µs
-Slowest Request:	60.015055ms
+43130 requests in 9.967270159s, 8.87MB read
+Requests/sec:		4327.16
+Transfer/sec:		911.76KB
+Avg Req Time:		3.697572ms
+Fastest Request:	513.239µs
+Slowest Request:	55.146255ms
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/json
   32 goroutine(s) running concurrently
-47323 requests in 9.98329392s, 9.74MB read
-Requests/sec:		4740.22
-Transfer/sec:		998.83KB
-Avg Req Time:		6.750742ms
-Fastest Request:	510.933µs
-Slowest Request:	31.366343ms
+46332 requests in 9.984843548s, 9.53MB read
+Requests/sec:		4640.23
+Transfer/sec:		977.75KB
+Avg Req Time:		6.896205ms
+Fastest Request:	544.468µs
+Slowest Request:	70.564887ms
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/json
   64 goroutine(s) running concurrently
-43503 requests in 9.993107641s, 8.95MB read
-Requests/sec:		4353.30
-Transfer/sec:		917.37KB
-Avg Req Time:		14.701489ms
-Fastest Request:	506.099µs
-Slowest Request:	81.49022ms
+49534 requests in 9.992618581s, 10.19MB read
+Requests/sec:		4957.06
+Transfer/sec:		1.02MB
+Avg Req Time:		12.910881ms
+Fastest Request:	537.264µs
+Slowest Request:	51.811717ms
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/json
   128 goroutine(s) running concurrently
-40595 requests in 10.01565396s, 8.35MB read
-Requests/sec:		4053.16
-Transfer/sec:		854.06KB
-Avg Req Time:		31.580335ms
-Fastest Request:	573.063µs
-Slowest Request:	170.119685ms
+41839 requests in 10.002434973s, 8.61MB read
+Requests/sec:		4182.88
+Transfer/sec:		881.43KB
+Avg Req Time:		30.600914ms
+Fastest Request:	552.561µs
+Slowest Request:	111.914408ms
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/json
   256 goroutine(s) running concurrently
-44944 requests in 10.015616636s, 9.25MB read
-Requests/sec:		4487.39
-Transfer/sec:		945.96KB
-Avg Req Time:		57.048724ms
-Fastest Request:	669.139µs
-Slowest Request:	159.069029ms
+52267 requests in 10.007094794s, 10.76MB read
+Requests/sec:		5222.99
+Transfer/sec:		1.07MB
+Avg Req Time:		49.014029ms
+Fastest Request:	2.075665ms
+Slowest Request:	130.534775ms
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:15:30
+Warmup Finish: 2021-07-16 10:40:30
 
-Warmup Start: 2021-07-14 18:15:36
+Warmup Start: 2021-07-16 10:40:36
 URL: http://localhost:8081/api/plaintext
 Running 10s test @ http://localhost:8081/api/plaintext
   1 goroutine(s) running concurrently
-15558 requests in 9.880766411s, 2.53MB read
-Requests/sec:		1574.57
-Transfer/sec:		262.57KB
-Avg Req Time:		635.092µs
-Fastest Request:	416.165µs
-Slowest Request:	10.399883ms
+14869 requests in 9.880407688s, 2.42MB read
+Requests/sec:		1504.90
+Transfer/sec:		250.96KB
+Avg Req Time:		664.497µs
+Fastest Request:	447.99µs
+Slowest Request:	7.793972ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/plaintext
   16 goroutine(s) running concurrently
-47944 requests in 9.969851656s, 7.81MB read
-Requests/sec:		4808.90
-Transfer/sec:		801.94KB
-Avg Req Time:		3.327165ms
-Fastest Request:	470.793µs
-Slowest Request:	30.059314ms
+36670 requests in 9.974485759s, 5.97MB read
+Requests/sec:		3676.38
+Transfer/sec:		613.09KB
+Avg Req Time:		4.352107ms
+Fastest Request:	440.285µs
+Slowest Request:	38.693925ms
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/plaintext
   32 goroutine(s) running concurrently
-35691 requests in 9.991988815s, 5.81MB read
-Requests/sec:		3571.96
-Transfer/sec:		595.68KB
-Avg Req Time:		8.958663ms
-Fastest Request:	478.716µs
-Slowest Request:	48.724791ms
+49432 requests in 9.97985349s, 8.05MB read
+Requests/sec:		4953.18
+Transfer/sec:		826.02KB
+Avg Req Time:		6.460497ms
+Fastest Request:	515.661µs
+Slowest Request:	31.542073ms
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/plaintext
   64 goroutine(s) running concurrently
-49366 requests in 9.994870638s, 8.04MB read
-Requests/sec:		4939.13
-Transfer/sec:		823.75KB
-Avg Req Time:		12.957738ms
-Fastest Request:	705.052µs
-Slowest Request:	44.034135ms
+50089 requests in 9.990217872s, 8.16MB read
+Requests/sec:		5013.80
+Transfer/sec:		836.20KB
+Avg Req Time:		12.764757ms
+Fastest Request:	569.439µs
+Slowest Request:	53.889527ms
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/plaintext
   128 goroutine(s) running concurrently
-43958 requests in 10.00126474s, 7.16MB read
-Requests/sec:		4395.24
-Transfer/sec:		733.07KB
-Avg Req Time:		29.122386ms
-Fastest Request:	603.093µs
-Slowest Request:	89.309996ms
+52119 requests in 9.995292208s, 8.49MB read
+Requests/sec:		5214.35
+Transfer/sec:		869.59KB
+Avg Req Time:		24.547619ms
+Fastest Request:	669.74µs
+Slowest Request:	82.070358ms
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/plaintext
   256 goroutine(s) running concurrently
-42938 requests in 10.018225405s, 7.00MB read
-Requests/sec:		4285.99
-Transfer/sec:		715.13KB
-Avg Req Time:		59.72951ms
-Fastest Request:	742.288µs
-Slowest Request:	158.051147ms
+48134 requests in 10.017766007s, 7.84MB read
+Requests/sec:		4804.86
+Transfer/sec:		801.78KB
+Avg Req Time:		53.279347ms
+Fastest Request:	624.027µs
+Slowest Request:	158.209152ms
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:17:07
+Warmup Finish: 2021-07-16 10:42:06
 
-Warmup Start: 2021-07-14 18:17:13
+Warmup Start: 2021-07-16 10:42:12
 URL: http://localhost:8081/api/base64
 Running 10s test @ http://localhost:8081/api/base64
   1 goroutine(s) running concurrently
-14221 requests in 9.886159836s, 3.73MB read
-Requests/sec:		1438.48
-Transfer/sec:		385.97KB
-Avg Req Time:		695.18µs
-Fastest Request:	463.809µs
-Slowest Request:	9.033015ms
+14816 requests in 9.883501041s, 3.88MB read
+Requests/sec:		1499.06
+Transfer/sec:		402.23KB
+Avg Req Time:		667.082µs
+Fastest Request:	456.605µs
+Slowest Request:	7.28868ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/base64
   16 goroutine(s) running concurrently
-39583 requests in 9.975313757s, 10.37MB read
-Requests/sec:		3968.10
-Transfer/sec:		1.04MB
-Avg Req Time:		4.03216ms
-Fastest Request:	495.336µs
-Slowest Request:	40.148118ms
+46615 requests in 9.965329279s, 12.21MB read
+Requests/sec:		4677.72
+Transfer/sec:		1.23MB
+Avg Req Time:		3.420471ms
+Fastest Request:	520.264µs
+Slowest Request:	36.867764ms
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/base64
   32 goroutine(s) running concurrently
-45033 requests in 9.985467505s, 11.80MB read
-Requests/sec:		4509.85
-Transfer/sec:		1.18MB
-Avg Req Time:		7.095573ms
-Fastest Request:	565.562µs
-Slowest Request:	39.546255ms
+47813 requests in 9.984883023s, 12.53MB read
+Requests/sec:		4788.54
+Transfer/sec:		1.25MB
+Avg Req Time:		6.682623ms
+Fastest Request:	558.206µs
+Slowest Request:	61.980228ms
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/base64
   64 goroutine(s) running concurrently
-47279 requests in 9.992438191s, 12.39MB read
-Requests/sec:		4731.48
-Transfer/sec:		1.24MB
-Avg Req Time:		13.526429ms
-Fastest Request:	635.05µs
-Slowest Request:	49.591502ms
+34789 requests in 9.99624173s, 9.12MB read
+Requests/sec:		3480.21
+Transfer/sec:		933.88KB
+Avg Req Time:		18.389705ms
+Fastest Request:	511.596µs
+Slowest Request:	76.419981ms
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/base64
   128 goroutine(s) running concurrently
-48604 requests in 9.997356367s, 12.74MB read
-Requests/sec:		4861.69
-Transfer/sec:		1.27MB
-Avg Req Time:		26.328318ms
-Fastest Request:	578.48µs
-Slowest Request:	90.659332ms
+49713 requests in 9.991081931s, 13.03MB read
+Requests/sec:		4975.74
+Transfer/sec:		1.30MB
+Avg Req Time:		25.72483ms
+Fastest Request:	588.179µs
+Slowest Request:	98.087699ms
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/base64
   256 goroutine(s) running concurrently
-39595 requests in 10.023109965s, 10.38MB read
-Requests/sec:		3950.37
-Transfer/sec:		1.04MB
-Avg Req Time:		64.804044ms
-Fastest Request:	700.018µs
-Slowest Request:	206.30238ms
+51841 requests in 10.01233234s, 13.58MB read
+Requests/sec:		5177.71
+Transfer/sec:		1.36MB
+Avg Req Time:		49.442662ms
+Fastest Request:	897.503µs
+Slowest Request:	154.547897ms
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:18:43
+Warmup Finish: 2021-07-16 10:43:43
 
-Warmup Start: 2021-07-14 18:18:49
+Warmup Start: 2021-07-16 10:43:49
 URL: http://localhost:8081/api/measurements/random
 Running 10s test @ http://localhost:8081/api/measurements/random
   1 goroutine(s) running concurrently
-5337 requests in 9.952887769s, 1.18MB read
-Requests/sec:		536.23
-Transfer/sec:		121.26KB
-Avg Req Time:		1.864884ms
-Fastest Request:	1.503957ms
-Slowest Request:	10.090601ms
+5291 requests in 9.957154625s, 1.17MB read
+Requests/sec:		531.38
+Transfer/sec:		120.16KB
+Avg Req Time:		1.881904ms
+Fastest Request:	1.530663ms
+Slowest Request:	9.200284ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements/random
   16 goroutine(s) running concurrently
-14769 requests in 10.00745613s, 3.26MB read
-Requests/sec:		1475.80
-Transfer/sec:		333.73KB
-Avg Req Time:		10.84158ms
-Fastest Request:	1.818761ms
-Slowest Request:	1.156745941s
+10945 requests in 10.051883917s, 2.42MB read
+Requests/sec:		1088.85
+Transfer/sec:		246.23KB
+Avg Req Time:		14.694394ms
+Fastest Request:	2.384652ms
+Slowest Request:	1.161547048s
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements/random
   32 goroutine(s) running concurrently
-10785 requests in 10.013163192s, 2.38MB read
-Requests/sec:		1077.08
-Transfer/sec:		243.59KB
-Avg Req Time:		29.709895ms
-Fastest Request:	3.762173ms
-Slowest Request:	1.058578057s
+14047 requests in 10.021021492s, 3.10MB read
+Requests/sec:		1401.75
+Transfer/sec:		316.99KB
+Avg Req Time:		22.828553ms
+Fastest Request:	3.337609ms
+Slowest Request:	1.023209263s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements/random
   64 goroutine(s) running concurrently
-15340 requests in 10.02869335s, 3.39MB read
-Requests/sec:		1529.61
-Transfer/sec:		345.94KB
-Avg Req Time:		41.840702ms
-Fastest Request:	7.414927ms
-Slowest Request:	1.242122159s
+14758 requests in 10.056431688s, 3.26MB read
+Requests/sec:		1467.52
+Transfer/sec:		331.89KB
+Avg Req Time:		43.611033ms
+Fastest Request:	7.954828ms
+Slowest Request:	1.207323323s
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements/random
   128 goroutine(s) running concurrently
-16784 requests in 10.019878835s, 3.71MB read
-Requests/sec:		1675.07
-Transfer/sec:		378.87KB
-Avg Req Time:		76.414709ms
-Fastest Request:	1.356163ms
-Slowest Request:	1.237563883s
+14230 requests in 10.044102372s, 3.14MB read
+Requests/sec:		1416.75
+Transfer/sec:		320.40KB
+Avg Req Time:		90.347512ms
+Fastest Request:	11.492494ms
+Slowest Request:	1.149466713s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements/random
   256 goroutine(s) running concurrently
-17280 requests in 10.077538622s, 3.82MB read
-Requests/sec:		1714.70
-Transfer/sec:		388.14KB
-Avg Req Time:		149.296868ms
-Fastest Request:	5.950543ms
-Slowest Request:	1.206667394s
+13795 requests in 10.057613493s, 3.05MB read
+Requests/sec:		1371.60
+Transfer/sec:		310.47KB
+Avg Req Time:		186.643642ms
+Fastest Request:	8.464615ms
+Slowest Request:	1.343671507s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:20:22
+Warmup Finish: 2021-07-16 10:45:21
 
-Warmup Start: 2021-07-14 18:20:28
+Warmup Start: 2021-07-16 10:45:27
 URL: http://localhost:8081/api/measurements
 Running 10s test @ http://localhost:8081/api/measurements
   1 goroutine(s) running concurrently
-4950 requests in 9.957447705s, 4.88MB read
-Requests/sec:		497.12
-Transfer/sec:		501.37KB
-Avg Req Time:		2.011605ms
-Fastest Request:	1.639323ms
-Slowest Request:	12.370207ms
+4852 requests in 9.956681983s, 4.78MB read
+Requests/sec:		487.31
+Transfer/sec:		491.48KB
+Avg Req Time:		2.052077ms
+Fastest Request:	1.674786ms
+Slowest Request:	8.994622ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements
   16 goroutine(s) running concurrently
-11347 requests in 10.061427694s, 11.18MB read
-Requests/sec:		1127.77
-Transfer/sec:		1.11MB
-Avg Req Time:		14.18726ms
-Fastest Request:	2.096541ms
-Slowest Request:	1.027535197s
+13268 requests in 10.058416867s, 13.07MB read
+Requests/sec:		1319.09
+Transfer/sec:		1.30MB
+Avg Req Time:		12.129534ms
+Fastest Request:	1.367178ms
+Slowest Request:	1.15498157s
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements
   32 goroutine(s) running concurrently
-15219 requests in 10.06367771s, 14.99MB read
-Requests/sec:		1512.27
-Transfer/sec:		1.49MB
-Avg Req Time:		21.160239ms
-Fastest Request:	2.359153ms
-Slowest Request:	1.160734139s
+13990 requests in 10.048671939s, 13.78MB read
+Requests/sec:		1392.22
+Transfer/sec:		1.37MB
+Avg Req Time:		22.98481ms
+Fastest Request:	1.574204ms
+Slowest Request:	1.310020486s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements
   64 goroutine(s) running concurrently
-16197 requests in 10.019301708s, 15.95MB read
-Requests/sec:		1616.58
-Transfer/sec:		1.59MB
-Avg Req Time:		39.589757ms
-Fastest Request:	4.397683ms
-Slowest Request:	1.199481517s
+15471 requests in 10.047076089s, 15.24MB read
+Requests/sec:		1539.85
+Transfer/sec:		1.52MB
+Avg Req Time:		41.562463ms
+Fastest Request:	1.647817ms
+Slowest Request:	1.317077072s
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements
   128 goroutine(s) running concurrently
-16763 requests in 10.050669816s, 16.51MB read
-Requests/sec:		1667.85
-Transfer/sec:		1.64MB
-Avg Req Time:		76.745554ms
-Fastest Request:	5.251146ms
-Slowest Request:	1.201395062s
+16550 requests in 10.103823675s, 16.30MB read
+Requests/sec:		1637.99
+Transfer/sec:		1.61MB
+Avg Req Time:		78.144376ms
+Fastest Request:	1.591316ms
+Slowest Request:	1.117392264s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements
   256 goroutine(s) running concurrently
-16897 requests in 10.072449466s, 16.65MB read
-Requests/sec:		1677.55
-Transfer/sec:		1.65MB
-Avg Req Time:		152.603838ms
-Fastest Request:	8.502189ms
-Slowest Request:	1.438015749s
+16640 requests in 10.071199951s, 16.39MB read
+Requests/sec:		1652.24
+Transfer/sec:		1.63MB
+Avg Req Time:		154.941537ms
+Fastest Request:	1.631245ms
+Slowest Request:	1.421828309s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:22:00
+Warmup Finish: 2021-07-16 10:47:00
 
-Warmup Start: 2021-07-14 18:22:07
+Warmup Start: 2021-07-16 10:47:06
 URL: http://localhost:8081/api/measurements?page=1&limit=100
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=100
   1 goroutine(s) running concurrently
-3023 requests in 9.963977138s, 26.29MB read
-Requests/sec:		303.39
-Transfer/sec:		2.64MB
-Avg Req Time:		3.296055ms
-Fastest Request:	2.786681ms
-Slowest Request:	10.501862ms
+3077 requests in 9.965362594s, 26.76MB read
+Requests/sec:		308.77
+Transfer/sec:		2.69MB
+Avg Req Time:		3.238661ms
+Fastest Request:	2.691214ms
+Slowest Request:	9.639968ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=100
   16 goroutine(s) running concurrently
-9937 requests in 10.074111295s, 86.43MB read
-Requests/sec:		986.39
-Transfer/sec:		8.58MB
-Avg Req Time:		16.220768ms
-Fastest Request:	2.560416ms
-Slowest Request:	1.030265024s
+9739 requests in 10.022115226s, 84.71MB read
+Requests/sec:		971.75
+Transfer/sec:		8.45MB
+Avg Req Time:		16.465124ms
+Fastest Request:	2.697563ms
+Slowest Request:	1.160549343s
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=100
   32 goroutine(s) running concurrently
-10183 requests in 10.036766081s, 88.57MB read
-Requests/sec:		1014.57
-Transfer/sec:		8.83MB
-Avg Req Time:		31.540461ms
-Fastest Request:	2.538586ms
-Slowest Request:	1.174109561s
+9938 requests in 10.014681358s, 86.44MB read
+Requests/sec:		992.34
+Transfer/sec:		8.63MB
+Avg Req Time:		32.246911ms
+Fastest Request:	2.720476ms
+Slowest Request:	1.04297002s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=100
   64 goroutine(s) running concurrently
-10698 requests in 10.023364295s, 93.05MB read
-Requests/sec:		1067.31
-Transfer/sec:		9.28MB
-Avg Req Time:		59.964041ms
-Fastest Request:	3.734554ms
-Slowest Request:	1.226621146s
+10479 requests in 10.080885683s, 91.15MB read
+Requests/sec:		1039.49
+Transfer/sec:		9.04MB
+Avg Req Time:		61.568535ms
+Fastest Request:	5.362783ms
+Slowest Request:	1.257604092s
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=100
   128 goroutine(s) running concurrently
-10761 requests in 10.072510667s, 93.60MB read
-Requests/sec:		1068.35
-Transfer/sec:		9.29MB
-Avg Req Time:		119.810553ms
-Fastest Request:	4.156721ms
-Slowest Request:	1.384869666s
+10903 requests in 10.04178452s, 94.84MB read
+Requests/sec:		1085.76
+Transfer/sec:		9.44MB
+Avg Req Time:		117.889426ms
+Fastest Request:	4.432842ms
+Slowest Request:	1.267679689s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=100
   256 goroutine(s) running concurrently
-11155 requests in 10.117507877s, 97.03MB read
-Requests/sec:		1102.54
-Transfer/sec:		9.59MB
-Avg Req Time:		232.19023ms
-Fastest Request:	3.238413ms
-Slowest Request:	1.553964s
+11238 requests in 10.105486211s, 97.75MB read
+Requests/sec:		1112.07
+Transfer/sec:		9.67MB
+Avg Req Time:		230.201501ms
+Fastest Request:	14.338264ms
+Slowest Request:	1.38563353s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:23:39
+Warmup Finish: 2021-07-16 10:48:39
 
-Warmup Start: 2021-07-14 18:23:45
+Warmup Start: 2021-07-16 10:48:45
 URL: http://localhost:8081/api/measurements?page=1&limit=1000
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=1000
   1 goroutine(s) running concurrently
-639 requests in 9.992228153s, 55.43MB read
-Requests/sec:		63.95
-Transfer/sec:		5.55MB
-Avg Req Time:		15.637289ms
-Fastest Request:	13.649448ms
-Slowest Request:	30.716716ms
+682 requests in 9.99750108s, 59.16MB read
+Requests/sec:		68.22
+Transfer/sec:		5.92MB
+Avg Req Time:		14.659092ms
+Fastest Request:	13.160936ms
+Slowest Request:	36.153625ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=1000
   16 goroutine(s) running concurrently
-2244 requests in 10.019475459s, 194.66MB read
-Requests/sec:		223.96
-Transfer/sec:		19.43MB
-Avg Req Time:		71.44011ms
-Fastest Request:	18.743961ms
-Slowest Request:	1.053054067s
+2378 requests in 10.033749571s, 206.28MB read
+Requests/sec:		237.00
+Transfer/sec:		20.56MB
+Avg Req Time:		67.51051ms
+Fastest Request:	19.709549ms
+Slowest Request:	250.226525ms
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=1000
   32 goroutine(s) running concurrently
-2193 requests in 10.046921931s, 190.23MB read
-Requests/sec:		218.28
-Transfer/sec:		18.93MB
-Avg Req Time:		146.603512ms
-Fastest Request:	49.532847ms
-Slowest Request:	1.111375848s
+2220 requests in 10.062040181s, 192.58MB read
+Requests/sec:		220.63
+Transfer/sec:		19.14MB
+Avg Req Time:		145.038417ms
+Fastest Request:	44.809774ms
+Slowest Request:	1.109647858s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=1000
   64 goroutine(s) running concurrently
-2404 requests in 10.07196984s, 208.54MB read
-Requests/sec:		238.68
-Transfer/sec:		20.70MB
-Avg Req Time:		268.138964ms
-Fastest Request:	83.137058ms
-Slowest Request:	510.678576ms
+2349 requests in 10.038645951s, 203.77MB read
+Requests/sec:		234.00
+Transfer/sec:		20.30MB
+Avg Req Time:		273.509297ms
+Fastest Request:	42.493362ms
+Slowest Request:	561.342742ms
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=1000
   128 goroutine(s) running concurrently
-2406 requests in 10.068486695s, 208.71MB read
-Requests/sec:		238.96
-Transfer/sec:		20.73MB
-Avg Req Time:		535.64684ms
-Fastest Request:	173.921597ms
-Slowest Request:	1.663305591s
+2368 requests in 10.124297963s, 205.42MB read
+Requests/sec:		233.89
+Transfer/sec:		20.29MB
+Avg Req Time:		547.259349ms
+Fastest Request:	54.628609ms
+Slowest Request:	1.609328938s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements?page=1&limit=1000
   256 goroutine(s) running concurrently
-2087 requests in 10.536417696s, 181.04MB read
-Requests/sec:		198.07
-Transfer/sec:		17.18MB
-Avg Req Time:		1.292440311s
-Fastest Request:	258.192061ms
-Slowest Request:	2.494799214s
+2392 requests in 10.27945784s, 207.50MB read
+Requests/sec:		232.70
+Transfer/sec:		20.19MB
+Avg Req Time:		1.100142645s
+Fastest Request:	36.930331ms
+Slowest Request:	1.8478004s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:25:17
+Warmup Finish: 2021-07-16 10:50:16
 
-Warmup Start: 2021-07-14 18:25:23
+Warmup Start: 2021-07-16 10:50:22
 URL: http://localhost:8081/api/measurements/location
 Running 10s test @ http://localhost:8081/api/measurements/location
   1 goroutine(s) running concurrently
-5103 requests in 9.957054534s, 1.58MB read
-Requests/sec:		512.50
-Transfer/sec:		162.09KB
-Avg Req Time:		1.951215ms
-Fastest Request:	1.600822ms
-Slowest Request:	130.490599ms
+5122 requests in 9.957104509s, 1.58MB read
+Requests/sec:		514.41
+Transfer/sec:		162.57KB
+Avg Req Time:		1.943987ms
+Fastest Request:	1.603922ms
+Slowest Request:	11.352945ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements/location
   16 goroutine(s) running concurrently
-12944 requests in 10.029584426s, 4.00MB read
-Requests/sec:		1290.58
-Transfer/sec:		408.02KB
-Avg Req Time:		12.397508ms
-Fastest Request:	1.984611ms
-Slowest Request:	1.156644238s
+10133 requests in 10.047472588s, 3.13MB read
+Requests/sec:		1008.51
+Transfer/sec:		318.84KB
+Avg Req Time:		15.864952ms
+Fastest Request:	2.331853ms
+Slowest Request:	1.161141209s
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements/location
   32 goroutine(s) running concurrently
-15319 requests in 10.02428859s, 4.73MB read
-Requests/sec:		1528.19
-Transfer/sec:		483.09KB
-Avg Req Time:		20.939828ms
-Fastest Request:	1.557654ms
-Slowest Request:	1.034035694s
+14099 requests in 10.045184491s, 4.35MB read
+Requests/sec:		1403.56
+Transfer/sec:		443.84KB
+Avg Req Time:		22.799198ms
+Fastest Request:	1.430894ms
+Slowest Request:	1.158615843s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements/location
   64 goroutine(s) running concurrently
-16254 requests in 10.045941345s, 5.02MB read
-Requests/sec:		1617.97
-Transfer/sec:		511.70KB
-Avg Req Time:		39.555816ms
-Fastest Request:	3.025506ms
-Slowest Request:	1.173191116s
+15341 requests in 10.02364408s, 4.74MB read
+Requests/sec:		1530.48
+Transfer/sec:		483.95KB
+Avg Req Time:		41.81691ms
+Fastest Request:	4.111871ms
+Slowest Request:	1.054951587s
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements/location
   128 goroutine(s) running concurrently
-16666 requests in 10.041896465s, 5.15MB read
-Requests/sec:		1659.65
-Transfer/sec:		524.93KB
-Avg Req Time:		77.124849ms
-Fastest Request:	7.960314ms
-Slowest Request:	1.211541519s
+16736 requests in 10.037097918s, 5.17MB read
+Requests/sec:		1667.41
+Transfer/sec:		527.29KB
+Avg Req Time:		76.765567ms
+Fastest Request:	1.80479ms
+Slowest Request:	1.215749818s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements/location
   256 goroutine(s) running concurrently
-15828 requests in 10.040410857s, 4.89MB read
-Requests/sec:		1576.43
-Transfer/sec:		498.82KB
-Avg Req Time:		162.39229ms
-Fastest Request:	4.250214ms
-Slowest Request:	1.288808674s
+16891 requests in 10.07934602s, 5.22MB read
+Requests/sec:		1675.80
+Transfer/sec:		530.25KB
+Avg Req Time:		152.76257ms
+Fastest Request:	1.685465ms
+Slowest Request:	1.346277273s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:26:56
+Warmup Finish: 2021-07-16 10:51:55
 
-Warmup Start: 2021-07-14 18:27:02
+Warmup Start: 2021-07-16 10:52:01
 URL: http://localhost:8081/api/measurements/queries?count=5
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=5
   1 goroutine(s) running concurrently
-1958 requests in 9.978043194s, 1.12MB read
-Requests/sec:		196.23
-Transfer/sec:		115.12KB
-Avg Req Time:		5.096038ms
-Fastest Request:	4.729429ms
-Slowest Request:	23.306535ms
+1820 requests in 9.980816211s, 1.04MB read
+Requests/sec:		182.35
+Transfer/sec:		106.97KB
+Avg Req Time:		5.483964ms
+Fastest Request:	4.928096ms
+Slowest Request:	11.583947ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=5
   16 goroutine(s) running concurrently
-3487 requests in 10.046877129s, 2.00MB read
-Requests/sec:		347.07
-Transfer/sec:		203.63KB
-Avg Req Time:		46.099809ms
-Fastest Request:	4.988496ms
-Slowest Request:	1.208771343s
+3205 requests in 10.053209361s, 1.84MB read
+Requests/sec:		318.80
+Transfer/sec:		187.04KB
+Avg Req Time:		50.187628ms
+Fastest Request:	6.607891ms
+Slowest Request:	2.164444595s
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=5
   32 goroutine(s) running concurrently
-4199 requests in 10.057706672s, 2.41MB read
-Requests/sec:		417.49
-Transfer/sec:		244.94KB
-Avg Req Time:		76.648395ms
-Fastest Request:	6.402837ms
-Slowest Request:	1.348504446s
+4055 requests in 10.056187916s, 2.32MB read
+Requests/sec:		403.23
+Transfer/sec:		236.59KB
+Avg Req Time:		79.358326ms
+Fastest Request:	5.809068ms
+Slowest Request:	1.352699311s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=5
   64 goroutine(s) running concurrently
-4432 requests in 10.108945906s, 2.54MB read
-Requests/sec:		438.42
-Transfer/sec:		257.30KB
-Avg Req Time:		145.977558ms
-Fastest Request:	11.863841ms
-Slowest Request:	1.393970656s
+4192 requests in 10.125543424s, 2.40MB read
+Requests/sec:		414.00
+Transfer/sec:		242.96KB
+Avg Req Time:		154.588449ms
+Fastest Request:	19.184056ms
+Slowest Request:	1.49559811s
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=5
   128 goroutine(s) running concurrently
-4499 requests in 10.085051239s, 2.58MB read
-Requests/sec:		446.11
-Transfer/sec:		261.80KB
-Avg Req Time:		286.927441ms
-Fastest Request:	31.33239ms
-Slowest Request:	1.436946252s
+4652 requests in 10.148430076s, 2.67MB read
+Requests/sec:		458.40
+Transfer/sec:		269.01KB
+Avg Req Time:		279.234533ms
+Fastest Request:	28.952144ms
+Slowest Request:	1.513857493s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=5
   256 goroutine(s) running concurrently
-4505 requests in 10.196084251s, 2.58MB read
-Requests/sec:		441.84
-Transfer/sec:		259.29KB
-Avg Req Time:		579.400126ms
-Fastest Request:	32.666634ms
-Slowest Request:	2.61679734s
+5061 requests in 10.345275963s, 2.90MB read
+Requests/sec:		489.21
+Transfer/sec:		287.11KB
+Avg Req Time:		523.293943ms
+Fastest Request:	36.542449ms
+Slowest Request:	1.672241708s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:28:35
+Warmup Finish: 2021-07-16 10:53:34
 
-Warmup Start: 2021-07-14 18:28:41
+Warmup Start: 2021-07-16 10:53:40
 URL: http://localhost:8081/api/measurements/queries?count=10
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=10
   1 goroutine(s) running concurrently
-1081 requests in 9.99165607s, 1.09MB read
-Requests/sec:		108.19
-Transfer/sec:		111.96KB
-Avg Req Time:		9.242975ms
-Fastest Request:	8.849329ms
-Slowest Request:	18.21067ms
+1001 requests in 9.991292506s, 1.01MB read
+Requests/sec:		100.19
+Transfer/sec:		103.67KB
+Avg Req Time:		9.981311ms
+Fastest Request:	9.098729ms
+Slowest Request:	18.750432ms
 Number of Errors:	0
 Concurrency 1 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=10
   16 goroutine(s) running concurrently
-2178 requests in 10.149149358s, 2.20MB read
-Requests/sec:		214.60
-Transfer/sec:		222.09KB
-Avg Req Time:		74.557571ms
-Fastest Request:	6.155319ms
-Slowest Request:	1.473578815s
+1944 requests in 10.107302485s, 1.96MB read
+Requests/sec:		192.34
+Transfer/sec:		199.04KB
+Avg Req Time:		83.187674ms
+Fastest Request:	8.591164ms
+Slowest Request:	2.064784367s
 Number of Errors:	0
 Concurrency 16 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=10
   32 goroutine(s) running concurrently
-2309 requests in 10.075378831s, 2.33MB read
-Requests/sec:		229.17
-Transfer/sec:		237.20KB
-Avg Req Time:		139.632794ms
-Fastest Request:	9.248431ms
-Slowest Request:	1.364961907s
+2107 requests in 10.062374579s, 2.13MB read
+Requests/sec:		209.39
+Transfer/sec:		216.75KB
+Avg Req Time:		152.822015ms
+Fastest Request:	13.544634ms
+Slowest Request:	1.512649134s
 Number of Errors:	0
 Concurrency 32 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=10
   64 goroutine(s) running concurrently
-2658 requests in 10.123755845s, 2.69MB read
-Requests/sec:		262.55
-Transfer/sec:		271.75KB
-Avg Req Time:		243.762367ms
-Fastest Request:	31.9569ms
-Slowest Request:	1.500142515s
+2077 requests in 10.198371636s, 2.10MB read
+Requests/sec:		203.66
+Transfer/sec:		210.80KB
+Avg Req Time:		314.249294ms
+Fastest Request:	29.856978ms
+Slowest Request:	1.672593222s
 Number of Errors:	0
 Concurrency 64 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=10
   128 goroutine(s) running concurrently
-2707 requests in 10.130815084s, 2.74MB read
-Requests/sec:		267.20
-Transfer/sec:		276.57KB
-Avg Req Time:		479.033738ms
-Fastest Request:	55.465654ms
-Slowest Request:	1.586086121s
+2319 requests in 10.070347282s, 2.34MB read
+Requests/sec:		230.28
+Transfer/sec:		238.35KB
+Avg Req Time:		555.844955ms
+Fastest Request:	35.001008ms
+Slowest Request:	1.931726372s
 Number of Errors:	0
 Concurrency 128 completed
 Running 10s test @ http://localhost:8081/api/measurements/queries?count=10
   256 goroutine(s) running concurrently
-2866 requests in 10.426752845s, 2.90MB read
-Requests/sec:		274.87
-Transfer/sec:		284.49KB
-Avg Req Time:		931.34987ms
-Fastest Request:	170.73028ms
-Slowest Request:	2.838466714s
+2574 requests in 10.56325854s, 2.60MB read
+Requests/sec:		243.67
+Transfer/sec:		252.21KB
+Avg Req Time:		1.050580491s
+Fastest Request:	63.272888ms
+Slowest Request:	2.388557883s
 Number of Errors:	0
 Concurrency 256 completed
-Warmup Finish: 2021-07-14 18:30:15
+Warmup Finish: 2021-07-16 10:55:14
 
-Test Start: 2021-07-14 18:30:31
+Test Start: 2021-07-16 10:55:30
 URL: http://localhost:8081/api/json
 Concurrency 1 completed
 Concurrency 16 completed
@@ -648,9 +648,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 18:37:01
+Test Finish: 2021-07-16 11:02:01
 
-Test Start: 2021-07-14 18:37:07
+Test Start: 2021-07-16 11:02:07
 URL: http://localhost:8081/api/plaintext
 Concurrency 1 completed
 Concurrency 16 completed
@@ -658,9 +658,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 18:43:38
+Test Finish: 2021-07-16 11:08:37
 
-Test Start: 2021-07-14 18:43:44
+Test Start: 2021-07-16 11:08:43
 URL: http://localhost:8081/api/base64
 Concurrency 1 completed
 Concurrency 16 completed
@@ -668,9 +668,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 18:50:14
+Test Finish: 2021-07-16 11:15:13
 
-Test Start: 2021-07-14 18:50:20
+Test Start: 2021-07-16 11:15:19
 URL: http://localhost:8081/api/measurements/random
 Concurrency 1 completed
 Concurrency 16 completed
@@ -678,9 +678,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 18:56:54
+Test Finish: 2021-07-16 11:21:53
 
-Test Start: 2021-07-14 18:57:00
+Test Start: 2021-07-16 11:21:59
 URL: http://localhost:8081/api/measurements
 Concurrency 1 completed
 Concurrency 16 completed
@@ -688,9 +688,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 19:03:32
+Test Finish: 2021-07-16 11:28:31
 
-Test Start: 2021-07-14 19:03:39
+Test Start: 2021-07-16 11:28:37
 URL: http://localhost:8081/api/measurements?page=1&limit=100
 Concurrency 1 completed
 Concurrency 16 completed
@@ -698,9 +698,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 19:10:10
+Test Finish: 2021-07-16 11:35:10
 
-Test Start: 2021-07-14 19:10:16
+Test Start: 2021-07-16 11:35:16
 URL: http://localhost:8081/api/measurements?page=1&limit=1000
 Concurrency 1 completed
 Concurrency 16 completed
@@ -708,9 +708,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 19:16:48
+Test Finish: 2021-07-16 11:41:47
 
-Test Start: 2021-07-14 19:16:54
+Test Start: 2021-07-16 11:41:53
 URL: http://localhost:8081/api/measurements/location
 Concurrency 1 completed
 Concurrency 16 completed
@@ -718,9 +718,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 19:23:26
+Test Finish: 2021-07-16 11:48:27
 
-Test Start: 2021-07-14 19:23:32
+Test Start: 2021-07-16 11:48:33
 URL: http://localhost:8081/api/measurements/queries?count=5
 Concurrency 1 completed
 Concurrency 16 completed
@@ -728,9 +728,9 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 19:30:06
+Test Finish: 2021-07-16 11:55:06
 
-Test Start: 2021-07-14 19:30:12
+Test Start: 2021-07-16 11:55:12
 URL: http://localhost:8081/api/measurements/queries?count=10
 Concurrency 1 completed
 Concurrency 16 completed
@@ -738,6 +738,6 @@ Concurrency 32 completed
 Concurrency 64 completed
 Concurrency 128 completed
 Concurrency 256 completed
-Test Finish: 2021-07-14 19:36:45
+Test Finish: 2021-07-16 12:01:46
 
-Script Finish: 2021-07-14 19:36:51
+Script Finish: 2021-07-16 12:01:52

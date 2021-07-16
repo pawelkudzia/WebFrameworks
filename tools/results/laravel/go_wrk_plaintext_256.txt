@@ -1,9 +1,9 @@
 Running 60s test @ http://localhost:8083/api/plaintext
   256 goroutine(s) running concurrently
-41282 requests in 1m0.16566335s, 9.32MB read
-Requests/sec:		686.14
-Transfer/sec:		158.70KB
-Avg Req Time:		373.102316ms
-Fastest Request:	17.426217ms
-Slowest Request:	518.384886ms
+40914 requests in 1m0.17733362s, 9.24MB read
+Requests/sec:		679.89
+Transfer/sec:		157.26KB
+Avg Req Time:		376.531197ms
+Fastest Request:	35.339363ms
+Slowest Request:	555.086784ms
 Number of Errors:	0
