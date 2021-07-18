@@ -6,6 +6,6 @@
 
 `postman` contains collection which holds endpoints used in web services.
 
-`results` contains final benchmark data for each framework.
+`results` contains final benchmark data for frameworks (61 `txt` files for each framework).
 
 `scripts` contains SQL queries for checking database.
