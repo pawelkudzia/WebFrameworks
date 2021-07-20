@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import os
+import sys
 
 
 class HorizontalPlot:
@@ -54,6 +56,30 @@ class HorizontalPlot:
         plt.savefig(self.file_name)
 
 
-horizontal_plot = HorizontalPlot(
-    'json.csv', 'json', 'Liczba żądań dla testu JSON')
-horizontal_plot.generate()
+csv_dir = 'csv'
+plots_dir = 'plots'
+plot_data = {
+    'json': 'Liczba żądań dla testu JSON',
+    'plaintext': 'Liczba żądań dla testu Plaintext',
+    'base64': 'Liczba żądań dla testu Base64',
+    'measurements_random': 'Liczba żądań dla testu Measurements Random',
+    'measurements': 'Liczba żądań dla testu Measurements',
+    'measurements100': 'Liczba żądań dla testu Measurements 100',
+    'measurements1000': 'Liczba żądań dla testu Measurements 1000',
+    'measurements_location': 'Liczba żądań dla testu Measurements Location',
+    'measurements_queries5': 'Liczba żądań dla testu Measurements Queries 5',
+    'measurements_queries10': 'Liczba żądań dla testu Measurements Queries 10',
+}
+
+if not os.path.isdir(csv_dir):
+    sys.exit(f'{csv_dir} directory does not exist')
+
+if not os.path.isdir(plots_dir):
+    os.makedirs(plots_dir)
+    print(f'{plots_dir} directory was created\n')
+
+for key, value in plot_data.items():
+    horizontal_plot = HorizontalPlot(
+        csv_file_path=f'{csv_dir}/{key}.csv', file_name=f'{plots_dir}/{key}.png', title=value)
+    horizontal_plot.generate()
+    print(f'{key} was created')
