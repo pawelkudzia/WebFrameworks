@@ -1,5 +1,5 @@
 server {
-    listen 8082;
+    listen 8081;
 
     server_name testexpress.com www.testexpress.com;
 

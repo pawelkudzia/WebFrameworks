@@ -1,5 +1,5 @@
 server {
-    listen 8083;
+    listen 8081;
 
     server_name testlaravel.com www.testlaravel.com;
 
