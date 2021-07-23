@@ -4,7 +4,7 @@
 
 `nginx` contains config files for nginx and scripts for starting web services.
 
-`plots` contains generated plots.
+`plots` contains generated benchmark plots.
 
 `postman` contains collection which holds endpoints used in web services.
 
