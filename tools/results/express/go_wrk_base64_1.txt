@@ -1,9 +1,9 @@
-Running 60s test @ http://localhost:8082/api/base64
+Running 60s test @ http://localhost:8081/api/base64
   1 goroutine(s) running concurrently
-57959 requests in 59.550398328s, 19.94MB read
-Requests/sec:		973.28
-Transfer/sec:		342.89KB
-Avg Req Time:		1.027457ms
-Fastest Request:	768.218µs
-Slowest Request:	16.877094ms
+55146 requests in 59.569147555s, 18.97MB read
+Requests/sec:		925.75
+Transfer/sec:		326.15KB
+Avg Req Time:		1.080207ms
+Fastest Request:	786.938µs
+Slowest Request:	27.517578ms
 Number of Errors:	0

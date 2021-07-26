@@ -1,9 +1,9 @@
 Running 60s test @ http://localhost:8081/api/json
   64 goroutine(s) running concurrently
-295841 requests in 59.925239441s, 60.87MB read
-Requests/sec:		4936.83
-Transfer/sec:		1.02MB
-Avg Req Time:		12.963772ms
-Fastest Request:	527.375µs
-Slowest Request:	123.242075ms
+271075 requests in 59.934033347s, 55.78MB read
+Requests/sec:		4522.89
+Transfer/sec:		953.00KB
+Avg Req Time:		14.150246ms
+Fastest Request:	443.732µs
+Slowest Request:	75.901252ms
 Number of Errors:	0

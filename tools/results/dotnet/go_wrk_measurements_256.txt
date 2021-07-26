@@ -1,9 +1,9 @@
 Running 60s test @ http://localhost:8081/api/measurements
   256 goroutine(s) running concurrently
-90391 requests in 1m0.063042703s, 89.03MB read
-Requests/sec:		1504.94
-Transfer/sec:		1.48MB
-Avg Req Time:		170.106967ms
-Fastest Request:	20.508552ms
-Slowest Request:	1.450820545s
+93272 requests in 1m0.046831382s, 91.87MB read
+Requests/sec:		1553.32
+Transfer/sec:		1.53MB
+Avg Req Time:		164.808182ms
+Fastest Request:	9.985518ms
+Slowest Request:	1.375021694s
 Number of Errors:	0
