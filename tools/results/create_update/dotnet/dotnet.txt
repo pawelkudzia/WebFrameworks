@@ -1,0 +1,15 @@
+Script Start: 2021-08-06 10:52:03
+
+Test Start: 2021-08-06 10:52:03
+Benchmark: measurements_random_create
+Requests 1000 completed
+Requests 10000 completed
+Test Finish: 2021-08-06 10:54:27
+
+Test Start: 2021-08-06 10:54:33
+Benchmark: measurements_random_update
+Requests 1000 completed
+Requests 10000 completed
+Test Finish: 2021-08-06 10:56:25
+
+Script Finish: 2021-08-06 10:56:31

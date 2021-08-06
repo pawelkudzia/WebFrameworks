@@ -1,0 +1,16 @@
+---
+base: http://localhost:8081/api
+concurrency: 100
+iterations: 1000
+
+plan:
+  - name: Measurements Random Create 1000
+    request:
+      url: /measurements/random
+      method: POST
+      headers:
+        Accept: 'application/json'
+        Connection: 'keep-alive'
+        Content-Length: '0'
+        Content-Type: 'application/json'
+      body: '{}'
