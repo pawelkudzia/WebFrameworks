@@ -20,7 +20,7 @@ class HorizontalPlot:
         self.bar_width = 0.25
         self.labels = ['1', '16', '32', '64', '128', '256']
         self.legend = ['.NET', 'Express', 'Laravel']
-        self.xlabel = 'Liczba żądań'
+        self.xlabel = 'Liczba żądań HTTP'
         self.ylabel = 'Liczba klientów'
         self.title = title
         self.y = np.arange(len(self.labels))
@@ -59,16 +59,16 @@ class HorizontalPlot:
 csv_dir = 'csv'
 plots_dir = 'plots'
 plot_data = {
-    'json': 'Liczba żądań dla testu JSON',
-    'plaintext': 'Liczba żądań dla testu Plaintext',
-    'base64': 'Liczba żądań dla testu Base64',
-    'measurements_random': 'Liczba żądań dla testu Measurements Random',
-    'measurements': 'Liczba żądań dla testu Measurements',
-    'measurements100': 'Liczba żądań dla testu Measurements 100',
-    'measurements1000': 'Liczba żądań dla testu Measurements 1000',
-    'measurements_location': 'Liczba żądań dla testu Measurements Location',
-    'measurements_queries5': 'Liczba żądań dla testu Measurements Queries 5',
-    'measurements_queries10': 'Liczba żądań dla testu Measurements Queries 10',
+    'json': 'Liczba żądań HTTP testu JSON',
+    'plaintext': 'Liczba żądań HTTP testu Plaintext',
+    'base64': 'Liczba żądań HTTP testu Base64',
+    'measurements_random': 'Liczba żądań HTTP testu Measurements Random',
+    'measurements': 'Liczba żądań HTTP testu Measurements',
+    'measurements100': 'Liczba żądań HTTP testu Measurements 100',
+    'measurements1000': 'Liczba żądań HTTP testu Measurements 1000',
+    'measurements_location': 'Liczba żądań HTTP testu Measurements Location',
+    'measurements_queries5': 'Liczba żądań HTTP testu Measurements Queries 5',
+    'measurements_queries10': 'Liczba żądań HTTP testu Measurements Queries 10',
 }
 
 if not os.path.isdir(csv_dir):
