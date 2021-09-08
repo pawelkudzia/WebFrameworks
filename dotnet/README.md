@@ -15,7 +15,7 @@ This file contains information about .NET web service.
 `dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 8.1.1`
 
 
-- Update packages in project ([dotnet outdated](https://github.com/dotnet-outdated/dotnet-outdated))
+- Update packages in project ([dotnet outdated](https://github.com/dotnet-outdated/dotnet-outdated)):
 
 `dotnet outdated --version-lock Minor --upgrade WebService.sln`
 
